@@ -288,6 +288,7 @@ a:focus {
 }
 .panel-primary>.panel-heading {
   background-color: #1e88e5;
+  overflow-y:auto;
 }
 .panel-success>.panel-heading {
   background-color: #33b86c;
@@ -331,6 +332,7 @@ a:focus {
 .panel-border.panel-primary .panel-heading{
   border-color: #1e88e5 !important;
   color: #1e88e5 !important;
+  overflow-y:auto;
 }
 .panel-border.panel-success .panel-heading{
   border-color: #33b86c !important;
@@ -381,6 +383,7 @@ a:focus {
 }
 .panel-fill.panel-primary {
   background-color: #489ce7;
+  overflow-y:auto;
 }
 .panel-fill.panel-success {
   background-color: #58c386;
@@ -1369,12 +1372,14 @@ body.fixed-left .side-menu.left {
   overflow: hidden;
   position: relative;
   min-height: 940px;
+  overflow-y:auto;
 }
 .content-page > .content {
   margin-top: 70px;
   margin-bottom: 60px;
   padding: 20px 5px 15px 5px;
   position: relative;
+  overflow-y:auto;
 }
 .button-menu-mobile {
   font-size: 21px;
@@ -1487,6 +1492,7 @@ body.fixed-left .side-menu.left {
 }
 #wrapper.enlarged .content-page {
   margin-left: 50px;
+  overflow-y:auto;
 }
 #wrapper.enlarged .topbar .topbar-left {
   width: 50px !important;
