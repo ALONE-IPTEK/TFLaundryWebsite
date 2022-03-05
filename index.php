@@ -232,7 +232,7 @@ $date=date('Y-m-d');
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initialize" async defer></script>
-        <script type="text/javascript">   
+        <script type="text/javascript"> </script>  
       <script>
   $( function() {
     $( "#datepicker" ).datepicker({                  
@@ -253,13 +253,13 @@ $date=date('Y-m-d');
     } else {
           console.log("tidak boleh");
     }
-}
+});
   </script>
 
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#datatable').dataTable();
+                dataTable = $('#datatable').dataTable();
             } );
         </script>
 

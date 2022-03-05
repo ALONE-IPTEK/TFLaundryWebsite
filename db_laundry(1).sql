@@ -53,8 +53,8 @@ CREATE TABLE `jenis` (
 --
 
 INSERT INTO `jenis` (`id`, `jenis`, `harga`) VALUES
-(1, 'Express 1 Hari > 5KG (Cuci Gosok)', 8000),
-(2, 'Express 1 Hari < 5Kg (Cuci Gosok)', 10000),
+(1, 'Express 1 Hari (LEBIH DARI) > 5KG (Cuci Gosok)', 8000),
+(2, 'Express 1 Hari (KURANG DARI) < 5Kg (Cuci Gosok)', 10000),
 (4, 'Cuci Gosok', 8000),
 (5, 'Gosok Aja', 6000);
 
@@ -137,8 +137,7 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id`, `nama`, `username`, `password`, `level`, `nik`, `alamat`, `telp`, `gender`) VALUES
 (1, 'Tio Irfan Antoni', 'sityoy', '4b98fb5647589473b739ce856356b193', 'Administrator', '123456789', 'Sumedang', '085221445987', 'Laki laki'),
-(2, 'Anisa Putri', 'anisa', '40cc8f68f52757aff1ad39a006bfbf11', 'Karyawan', '4172939182', 'Jl prima', '9823918309', 'Perempuan'),
-(3, 'Rizqamadha Isnaeni Fabiani', 'rizqa', 'e3381375c7e5b6d494053171fa72b78f', 'Administrator', '3172015505680013', 'Jl. Prima', '9812739172397', 'Perempuan');
+(2, 'Anisa Putri', 'anisa', '40cc8f68f52757aff1ad39a006bfbf11', 'Karyawan', '4172939182', 'Jl prima', '9823918309', 'Perempuan');
 
 -- --------------------------------------------------------
 
