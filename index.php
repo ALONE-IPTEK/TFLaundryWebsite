@@ -119,84 +119,82 @@ $date=date('Y-m-d');
                             
                             <p class="text-muted m-0"><?php echo $hasil['level']; ?></p>
                         </div>
-                    </div>
-                    <!--- Divider -->
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li>
-                                <a href="?p=home" class="waves-effect"><i class="md md-home"></i><span> Dashboard </span></a>
-                            </li>
-<li>
-                                <a href="?p=tambaht" class="waves-effect"><i class="fa fa-plus"></i><span> Buat Transaksi </span></a>
-                            </li>
-							<li>
-                                <a href="?p=riwayatt" class="waves-effect"><i class="fa fa-clock-o"></i><span> Riwayat Transaksi </span></a>
-                            </li>
-                            <?php if ($hasil['level']!=='Konsumen') { ?>
-														<li>
-                                <a href="?p=tambahko" class="waves-effect"><i class="fa fa-user-plus"></i><span> Tambah Konsumen </span></a>
-                            </li>
-                            <li>
-                                <a href="?p=maps" class="waves-effect"><i class="fa fa-map-marker"></i><span> Maps </span></a>
-                            </li>
-							       <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="fa fa-list"></i> <span> Data </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="?p=barang">Barang</a></li>
-                                    <li><a href="?p=datako">Konsumen</a></li>
-									 <li><a href="?p=datas">Supplier</a></li>
-                                     <li><a href="?p=dataA">Admin</a></li>
-									  <li><a href="?p=datak">Karyawan</a></li>
-									  <li><a href="?p=jenis">Jenis Laundry</a></li>
-									  <li><a href="?p=beli">Pembelian</a></li>
-									  <li><a href="?p=pakai">Pemakaian</a></li>
-                                </ul>
-                                
-                            </li>
-							<?php if ($hasil['level']=='Administrator') { ?>
-							       <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="fa fa-user"></i> <span> Admin Menu </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                <li><a href="?p=tambaha">Tambah Admin/CEO</a></li>
-                                    <li><a href="?p=tambahk">Tambah Karyawan</a></li>
-									 <li><a href="?p=tambahs">Tambah Supplier</a></li>
-									 <li><a href="?p=olahk">Olah Karyawan</a></li>
-									 <li><a href="?p=olahs">Olah Supplier</a></li>
-                                </ul>
-                            </li>
-<?php } ?>
-<?php } ?>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>                    
-            <div class="content-page">
-             
-                <div class="content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h4 class="pull-left page-title">Aplikasi Laundry v1.0</h4>
-                   
-                            </div>
-                        </div>
-
-                             <?php include "konten.php"; ?>
-                             
-                    </div> 
-                               
-                </div>
             </div>
-            
-                <footer class="footer text-left">
-                
-                    <div style="text-align:right;" >copyright &copy; <?php echo date('Y'); ?> <a href="https://sityoy.com"> sityoy.com</a> | Theme by Moltran.</div>
-                    
-                </footer>
 
-            </div></div>
+            <!--- Divider -->
+            <div id="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="?p=home" class="waves-effect"><i class="md md-home"></i><span> Dashboard </span></a>
+                    </li>
+                    <li>
+                        <a href="?p=tambaht" class="waves-effect"><i class="fa fa-plus"></i><span> Buat Transaksi Kiloan </span></a>
+                    </li>
+                    <li>
+                        <a href="?p=tambaht2" class="waves-effect"><i class="fa fa-plus"></i><span> Buat Transaksi Satuan </span></a>
+                    </li>
+					<li>
+                        <a href="?p=riwayatt" class="waves-effect"><i class="fa fa-clock-o"></i><span> Riwayat Transaksi </span></a>
+                    </li>
+                    <?php if ($hasil['level']!=='Konsumen') { ?>
+					<li>
+                        <a href="?p=tambahko" class="waves-effect"><i class="fa fa-user-plus"></i><span> Tambah Konsumen </span></a>
+                    </li>
+                    <li>
+                        <a href="?p=maps" class="waves-effect"><i class="fa fa-map-marker"></i><span> Maps </span></a>
+                    </li>
+			        <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="fa fa-list"></i> <span> Data </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="?p=barang">Barang</a></li>
+                            <li><a href="?p=datako">Konsumen</a></li>
+						    <li><a href="?p=datas">Supplier</a></li>
+                            <li><a href="?p=dataA">Admin</a></li>
+						    <li><a href="?p=datak">Karyawan</a></li>
+						    <li><a href="?p=jenis">Jenis Laundry Kiloan</a></li>
+						    <li><a href="?p=jenis2">Jenis Laundry Satuan</a></li>
+						    <li><a href="?p=beli">Pembelian</a></li>
+						    <li><a href="?p=pakai">Pemakaian</a></li>
+                        </ul>
+                    </li>
+					<?php if ($hasil['level']=='Administrator') { ?>
+				    <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="fa fa-user"></i> <span> Admin Menu </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="?p=tambaha">Tambah Admin/CEO</a></li>
+                            <li><a href="?p=tambahk">Tambah Karyawan</a></li>
+							<li><a href="?p=tambahs">Tambah Supplier</a></li>
+							<li><a href="?p=olahk">Olah Karyawan</a></li>
+							<li><a href="?p=olahs">Olah Supplier</a></li>
+                        </ul>
+                </li>
+                    <?php } ?>
+                    <?php } ?>
+        </ul>
+            <div class="clearfix"></div>
+        </div>
+            <div class="clearfix"></div>
+        </div>
+            </div>                    
+            
+        <div class="content-page">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 class="pull-left page-title">Aplikasi Laundry v1.0</h4>
+                        </div>
+                    </div>
+                    <?php include "konten.php"; ?>
+                </div> 
+            </div>
+        </div>
+        
+        <footer class="footer text-left">
+            <div style="text-align:right;" >copyright &copy; <?php echo date('Y'); ?> <a href="https://sityoy.com"> sityoy.com</a> | Theme by Moltran.</div>
+        </footer>
+        </div>
+    
     
         <script>
             var resizefunc = [];

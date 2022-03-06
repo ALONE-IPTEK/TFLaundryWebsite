@@ -84,7 +84,7 @@ echo '                        <div class="alert alert-warning alert-dismissable"
                                             <button class="close" data-dismiss="alert">&times;</button>
 											<p>Anda telah berhasil logout</p>
                                         </div>';
-}
+ }
 
 
 ?>
