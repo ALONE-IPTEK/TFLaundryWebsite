@@ -81,15 +81,13 @@ $date=date('Y-m-d');
                                 </button>
                                 <span class="clearfix"></span>
                             </div>
-                    
-
                             <ul class="nav navbar-nav navbar-right pull-right">
 
                                 <li class="dropdown">
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">Selamat Datang, <?php echo $hasil['username']; ?> <img src="images/user.png" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
                               
-                                        <li><a href="logout.php"><i class="md md-settings-power"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="md md-settings-power"></i> Logout</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -115,10 +113,9 @@ $date=date('Y-m-d');
                                 <ul class="dropdown-menu">
                                     <li><a href="logout.php"><i class="md md-settings-power"></i>&amp; Logout</a></li>
                                 </ul>
-                            </div>
-                            
-                            <p class="text-muted m-0"><?php echo $hasil['level']; ?></p>
                         </div>
+                            <p class="text-muted m-0"><?php echo $hasil['level']; ?></p>
+                </div>
             </div>
 
             <!--- Divider -->
@@ -128,10 +125,7 @@ $date=date('Y-m-d');
                         <a href="?p=home" class="waves-effect"><i class="md md-home"></i><span> Dashboard </span></a>
                     </li>
                     <li>
-                        <a href="?p=tambaht" class="waves-effect"><i class="fa fa-plus"></i><span> Buat Transaksi Kiloan </span></a>
-                    </li>
-                    <li>
-                        <a href="?p=tambaht2" class="waves-effect"><i class="fa fa-plus"></i><span> Buat Transaksi Satuan </span></a>
+                        <a href="?p=tambaht" class="waves-effect"><i class="fa fa-plus"></i><span> Buat Transaksi </span></a>
                     </li>
 					<li>
                         <a href="?p=riwayatt" class="waves-effect"><i class="fa fa-clock-o"></i><span> Riwayat Transaksi </span></a>
@@ -261,7 +255,5 @@ $date=date('Y-m-d');
             } );
         </script>
 
-
-	
 	</body>
 </html>

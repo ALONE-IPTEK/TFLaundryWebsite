@@ -17,7 +17,7 @@ $date=date('Y-m-d');
 	                            break;
                         case "hapus":
 mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM jenis WHERE id='$_GET[id]'");
-  header('location:../index.php?p=barang');
+  header('location:../index.php?p=jenis');
   
 	                            break;
                         case "update":

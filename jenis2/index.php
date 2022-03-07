@@ -14,7 +14,7 @@ echo "<div class='panel panel-border panel-primary'>
                                 <table id='datatable' class='table table-hover'>
                                     <thead>
                                         <tr>
-                                            <th><i class='icon-time'></i> Jenis</th>
+                                            <th><i class='icon-time'></i> Jenis2</th>
                                             <th><i class='icon-signal'></i> Harga/Kg</th>
 										<th><i class='icon-chevron-right'></i> Aksi</th>
                                         </tr>

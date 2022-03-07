@@ -14,6 +14,7 @@
 					<th><i class='icon-terminal'></i> Jenis Satuan</th>
 					<th><i class='icon-signal'></i> Tarif Kiloan</th>
 					<th><i class='icon-signal'></i> Tarif Satuan</th>
+					<th><i class='icon-signal'></i> Total Satuan dan Kiloan</th>
 					<th><i class='icon-signal'></i> Berat Kiloan</th>
 					<th><i class='icon-signal'></i> Berat Satuan</th>
 					<th><i class='icon-signal'></i> Tanggal Transaksi</th>
@@ -36,6 +37,7 @@ while($r=mysqli_fetch_array($tp)){
             <td><?php echo $r['jenis2'];?></td>
 			<td><?php echo'Rp.' . number_format( $r['tarif'], 0 , '' , '.' ) . ',-'?></td>
 			<td><?php echo'Rp.' . number_format( $r['tarif2'], 0 , '' , '.' ) . ',-'?></td>
+			<td><?php echo'Rp.' . number_format( $r['jumlah'], 0 , '' , '.' ) . ',-'?></td>
 			<td><?php echo $r['berat']?> Kg</td>
 			<td><?php echo $r['berat2']?> Kg</td>
 			<td><?php echo TanggalIndo($r['tgl_transaksi']);?></td>
@@ -46,6 +48,12 @@ while($r=mysqli_fetch_array($tp)){
 	<?php $i=$i+1;?>
 <?php } ?>
 	</tbody>
+	
+<script>
+    $(document).ready(function() {
+	   $('#table').DataTable();
+	} );
+</script>
         </table>
     </div><!-- /.box-body -->
 </div><!-- /.box -->   

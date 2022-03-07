@@ -46,12 +46,6 @@ break;
                         case "riwayatt":						
 include "transaksi/data.php";
 break;
-                        case "tambaht2":
-include "transaksi2/index.php";
-break;
-                        case "riwayatt":						
-include "transaksi2/data.php";
-break;
                         case "datas":						
 include "supplier/data.php";
 break;

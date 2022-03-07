@@ -69,7 +69,7 @@ Class Kwitansi extends FPDF
 $pt='T & F LAUNDRY';
 $jl='Jl. Taman Toram 10';
 $tel='';
-$cash=$hasil['tarif'];
+$cash=$hasil['jumlah'];
 $pembayar=$hasil['konsumen'];
 $tglambil= TanggalIndo($hasil['tgl_ambil']);
 $tgltransaksi= TanggalIndo($hasil['tgl_transaksi']);

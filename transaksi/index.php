@@ -67,7 +67,7 @@ $tgl_transaksi=date('Y-m-d');
 
 
 	
-	$input = mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$input = mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', $tarif3, '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	if($input){
 		
@@ -148,6 +148,11 @@ Transaksi Berhasil!</b></h4>';
 		<div class="form-group">
         	<label>Berat (Dalam <i style="color: red;">Satuan</i>)</label>
         	<input type="text" class="form-control" name="berat2" placeholder="Masukan Berat Pakaian(Pakai Angka)" required>
+    	</div>
+
+		<div class="form-group">
+        	<label><i style="color: purple;">Jumlah</i></label>
+        	<input> <?php $tarif+$tarif2; ?>
     	</div>
 		
 		<div class="form-group">
