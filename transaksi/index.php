@@ -1,11 +1,44 @@
+<?php
+session_start();
+if ( !isset($_SESSION['username']) ) {
+    header('location:login.php'); 
+}
+else { 
+    $usr = $_SESSION['username']; 
+}
+
+?>
+
 <div class='panel panel-border panel-primary'>
         <div class='panel-heading'> 
         	<h3 class='panel-title'><i class='fa fa-user-plus'></i> Buat Transaksi</h3> 
 </div>  
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
 
 <div class='panel-body'> 
 
 <?php
+include "../koneksi.php";
+$query5 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT max(nota) as nota FROM transaksi");
+$data = mysqli_fetch_array($query5);
+$kodeBarang = $data['nota'];
+ 
+// mengambil angka dari kode barang terbesar, menggunakan fungsi substr
+// dan diubah ke integer dengan (int)
+$urutan = (int) substr($kodeBarang, 3, 3);
+ 
+// bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya
+$urutan++;
+ 
+// membentuk kode barang baru
+// perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
+// misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
+// angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
+$angka = "000";
+$kodeBarang = $angka . sprintf("%03s", $urutan);
+ 
 if(isset($_POST['jenis'])){	
 $jeniss				= $_POST['jenis'];
 $jeniss2			= $_POST['jenis2'];
@@ -28,38 +61,12 @@ $tarif = $berat*$harga;
 $tarif2 = $berat2*$harga2;
 
 $tarif3 = $tarif+$tarif2;
-//   if ($berat){
-//   	$tarif = $berat*$harga;
-//  		}else{
-//   			$tarif = $berat*$harga;
- 		
-//  if ($berat2) {
-//  	$tarif2 = $berat2*$harga2 ;
-//  		} else {
-//  		$tarif2 = $berat2*$harga2 ;
-//  		}
-// 	}
-// if ($berat && $berat2) {
-//     $tarif = $berat*$harga;
-// }
-// else {
-// 	$tarif = $berat*$harga ;
-//     if ($berat) {
-//         $tarif = $berat*$harga;
-//     }
-//     elseif ($berat) {
-//         $tarif = $berat*$harga;
-//     }
-//     elseif ($berat2) {
-//         $tarif2 = $berat2*$harga2;
-//     }
-//     else {
-// 		$tarif2 = $berat*$harga;
-//     }
-// }
 
-
-$tgl_ambil		= $_POST['tgl_ambil'];
+$pecah = explode("/", $tgl_ambil = $_POST['tgl_ambil']);
+if (checkdate($pecah[1], $pecah[0], $pecah[2])) echo "Tanggal Valid";
+else {
+	echo "Tanggal Tidak";
+}
 $timezone = "Asia/Jakarta";
 if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 $tgl_transaksi=date('Y-m-d');
@@ -76,19 +83,17 @@ $tgl_transaksi=date('Y-m-d');
 Transaksi Berhasil!</b></h4>';		
 		echo '
 		<b>Rincian Transaksi</b><br>
-		============================<Br>
+		======================================================================<Br>
 		No. Nota : <b>'.$nota.'</b><br>
 		Konsumen : <b>'.$konsumen.'</b><br>
-		Jenis Laundry Kiloan :<li> <b>'.$jeniss.'</b></li>
-		Jenis Laundry Satuan :<li> <b>'.$jeniss2.'</b></li>
-		Berat Kiloan : <b>'.$berat.' Kg</b><br>
-		Berat Satuan : <b>'.$berat2.' Kg</b><br>
+		Jenis Laundry Kiloan :<li> <b>'.$jeniss.' - '.$berat.'</b></li>
+		Jenis Laundry Satuan :<li> <b>'.$jeniss2.' - '.$berat2. '</b></li>
 		Tarif Kiloan : <b>Rp. ' . number_format( $tarif, 0 , '' , '.' ) . ',-</b><br>
 		Tarif Satuan : <b>Rp. ' . number_format( $tarif2, 0 , '' , '.' ) . ',-</b><br>
 		Jumlah : <b>Rp. ' . number_format( $tarif3, 0 , '' , '.' ) . ',-</b><br>
 		Tanggal Transaksi : <b>'.TanggalIndo($tgl_transaksi).'</b><br>
 		Tanggal Ambil : <b>'.TanggalIndo($tgl_ambil).'</b><br>
-		============================
+		======================================================================
 		</div>
 		
 		';	
@@ -100,24 +105,19 @@ Transaksi Berhasil!</b></h4>';
 		
 	}
   }
+
+  header("location:transaksi/index.php")
  
 ?>
-	<form method="post">
+	<form method="post" action="transaksi/index.php">
 		<div class="form-group">
             <label>No. Nota</label>
-            <input type="number" class="form-control" name="nota" placeholder="Nomor Nota" required>
+            <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $kodeBarang ?>" placeholder="Nomor Nota" readonly>
         </div>
 		
 		<div class="form-group">
             <label>Konsumen</label>
-            <select  class="form-control" name="konsumen">
-				<?php
-					$tp=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM konsumen ORDER BY id");
-					while($r=mysqli_fetch_array($tp)){
-				?>
-				<option value="<?php echo $r['nama'];?>"><?php echo $r['nama'];?></option>
-					<?php } ?>
-			</select>
+			<input type="text" class="form-control" name="konsumen" placeholder="Masukkan Nama">
 		</div>
 		<div class="form-group">
         	<label>Jenis</label>
@@ -142,28 +142,71 @@ Transaksi Berhasil!</b></h4>';
 
 		<div class="form-group">
         	<label>Berat (Dalam <i style="color: blue;">Kilogram</i>)</label>
-        	<input type="text" class="form-control" name="berat" placeholder="Masukan Berat Pakaian(Pakai Angka)" required>
+        	<input type="number" class="form-control" name="berat" placeholder="Masukan Berat Pakaian(Pakai Angka)" required>
     	</div>
 
 		<div class="form-group">
         	<label>Berat (Dalam <i style="color: red;">Satuan</i>)</label>
-        	<input type="text" class="form-control" name="berat2" placeholder="Masukan Berat Pakaian(Pakai Angka)" required>
+        	<input type="number" class="form-control" name="berat2" placeholder="Masukan Berat Pakaian(Pakai Angka)" id="txt2" onkeyup="sum();">
     	</div>
 
 		<div class="form-group">
         	<label><i style="color: purple;">Jumlah</i></label>
-        	<input> <?php $tarif+$tarif2; ?>
+        	<input style="cursor: no-drop;" type="number" id="txt3" onkeyup="sum();" readonly>
     	</div>
-		
+		<script>
+			// Row Inserting event
+		function Row_Inserting($rsold, $rsnew) {
+			// Enter your code here
+			// To cancel, set return value to FALSE
+			if (strtotime($rsnew["Tanggal_Awal"]) > strtotime($rsnew["Tanggal_Akhir"])) {
+				$this=setFailureMessage("Tanggal Awal harus lebih kecil atau sama dengan Tanggal Akhir.");    
+				return FALSE;
+			}
+			return TRUE;
+		}
+		</script>
 		<div class="form-group">
     		<label>Tanggal Ambil</label>
-    		<input type="date" class="form-control" name="tgl_ambil" required>
+    		<!-- <input type="date" class="form-control" id="start" name="trip-start"
+			value="2022-03-11"
+			min="2022-03-11" max="2030-12-31"> -->
+			<input type="date" class="form-control" id="<?php echo $rsnew ?>" name="tgl_ambil">
 		</div>
-		
+
 			<pre>*Cek Data Dengan Teliti</pre>
 	
 			<button type="submit" class="btn btn-primary waves-effect waves-light">Buat Transaksi</button>
 		</form>
     </div>
 </div>
-		 
+
+<script>
+function sum() {
+    //   var txtFirstNumberValue = document.getElementById('txt1').value;
+      var txtSecondNumberValue = document.getElementById('txt2').value;
+      var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
+      if (!isNaN(result)) {
+         document.getElementById('txt3').value = result;
+      }
+}
+
+		// function hanyaAngka(evt) {
+		//   var charCode = (evt.which) ? evt.which : event.keyCode
+		//    if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		//     return false;
+		//   return true;
+		// }
+
+</script>
+<script>
+	$(function() {
+  			$("#datepicker").datepicker({
+			dateFormat: 'dd-mm-yy',
+			minDate: "today",
+			maxDate: "+30d",
+			});
+		$("#datepicker").datepicker("setDate", "1");
+		});
+</script>

@@ -1,3 +1,20 @@
+<?php
+session_start();
+if ( !isset($_SESSION['username']) ) {
+    header('location:login.php'); 
+}
+else { 
+    $usr = $_SESSION['username']; 
+}
+
+?>
+<style>
+	th, td{
+		border-style: solid; 
+		border-width: thin;
+	}
+	
+</style>
 <div class='panel panel-border panel-primary' role="navigation">
     <div class='panel-heading'>
     <h3 class='panel-title'><i class='fa fa-clock-o'></i> Riwayat Transaksi</h3> 
@@ -5,10 +22,10 @@
 
 <div class='panel-body'> 
 	<div class="row">
-        <table id='datatable' class='table table-hover'>
+        <table style="border-style: solid; border-width: thin;" id='datatable' class='table table-hover'>
             <thead>
                 <tr>
-					<th><i class='icon-terminal'></i> No</th>
+					<th ><i class='icon-terminal'></i> No</th>
 					<th><i class='icon-signal'></i> Konsumen</th>
 					<th><i class='icon-terminal'></i> Jenis Kiloan</th>
 					<th><i class='icon-terminal'></i> Jenis Satuan</th>
