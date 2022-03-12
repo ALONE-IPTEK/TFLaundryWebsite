@@ -9,7 +9,12 @@ else {
 
 ?>
 <style>
-	th, td{
+	th{
+		border-style: solid; 
+		border-width: thin;
+		text-align: center;
+	}
+	td{
 		border-style: solid; 
 		border-width: thin;
 	}
@@ -25,8 +30,9 @@ else {
         <table style="border-style: solid; border-width: thin;" id='datatable' class='table table-hover'>
             <thead>
                 <tr>
-					<th ><i class='icon-terminal'></i> No</th>
+					<th><i class='icon-terminal'></i> No</th>
 					<th><i class='icon-signal'></i> Konsumen</th>
+					<th><i class='icon-signal'></i> Nota</th>
 					<th><i class='icon-terminal'></i> Jenis Kiloan</th>
 					<th><i class='icon-terminal'></i> Jenis Satuan</th>
 					<th><i class='icon-signal'></i> Tarif Kiloan</th>
@@ -50,6 +56,8 @@ while($r=mysqli_fetch_array($tp)){
 		<td><?php echo $i;?></td>
 							 
             <td><?php echo $r['konsumen'];?></td>
+            <td><?php echo $r['nota'];?></td>
+
             <td><?php echo $r['jenis'];?></td>
             <td><?php echo $r['jenis2'];?></td>
 			<td><?php echo'Rp.' . number_format( $r['tarif'], 0 , '' , '.' ) . ',-'?></td>

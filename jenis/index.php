@@ -104,8 +104,6 @@ case "tambah":
 ?>    
 
 
-
-
 </body>
 
 </html>

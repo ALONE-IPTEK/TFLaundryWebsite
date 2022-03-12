@@ -7,13 +7,6 @@ else {
     $usr = $_SESSION['username']; 
 }
 
-$query6 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$usr'");
-$hasil7 = mysqli_fetch_array($query6);
-if (empty($hasil7['username'])) {
-    header('Location: ../login.php');
-}
-
-
 ?>
 
 <div class='panel panel-border panel-primary'>
@@ -28,21 +21,18 @@ if (empty($hasil7['username'])) {
 
 <?php
 include "../koneksi.php";
+$query7 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$usr'");
+$hasil7 = mysqli_fetch_array($query7);
+if (empty($hasil7['username'])) {
+    header('Location: ./login.php');
+}
 $query5 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT max(nota) as nota FROM transaksi");
 $data = mysqli_fetch_array($query5);
+
 $kodeBarang = $data['nota'];
-
-// mengambil angka dari kode barang terbesar, menggunakan fungsi substr
-// dan diubah ke integer dengan (int)
 $urutan = (int) substr($kodeBarang, 3, 3);
-
-// bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya
 $urutan++;
 
-// membentuk kode barang baru
-// perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
-// misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
-// angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
 $angka = "000";
 $kodeBarang = $angka . sprintf("%03s", $urutan);
 
@@ -60,6 +50,7 @@ $hasil2 			= mysqli_fetch_array($query2);
 $harga				= $hasil['harga'];
 $harga2				= $hasil2['harga'];
 
+$usr				= $_POST['pengguna'];
 $berat				= $_POST['berat'];
 $berat2				= $_POST['berat2'];
 $konsumen			= $_POST['konsumen'];
@@ -118,10 +109,10 @@ Transaksi Berhasil!</b></h4>';
  
 ?>
 	<form method="post">
-	<!-- <div class="form-group">
+	<div class="form-group">
             <label>Admin</label>
             <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $hasil7['nama'] ?>" placeholder="Nomor Nota" readonly>
-        </div> -->
+        </div>
 		<div class="form-group">
             <label>No. Nota</label>
             <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $kodeBarang ?>" placeholder="Nomor Nota" readonly>
@@ -190,14 +181,14 @@ Transaksi Berhasil!</b></h4>';
 </div>
 
 <script>
-function sum() {
-    //   var txtFirstNumberValue = document.getElementById('txt1').value;
-      var txtSecondNumberValue = document.getElementById('txt2').value;
-      var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('txt3').value = result;
-      }
-}
+	function sum() {
+		//   var txtFirstNumberValue = document.getElementById('txt1').value;
+		var txtSecondNumberValue = document.getElementById('txt2').value;
+		var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('txt3').value = result;
+		}
+	}
 
 		// function hanyaAngka(evt) {
 		//   var charCode = (evt.which) ? evt.which : event.keyCode
