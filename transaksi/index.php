@@ -1,11 +1,18 @@
-<?php
+<?php 
 session_start();
 if ( !isset($_SESSION['username']) ) {
     header('location:login.php'); 
-}
+} 
 else { 
     $usr = $_SESSION['username']; 
 }
+
+$query6 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$usr'");
+$hasil7 = mysqli_fetch_array($query6);
+if (empty($hasil7['username'])) {
+    header('Location: ../login.php');
+}
+
 
 ?>
 
@@ -24,21 +31,22 @@ include "../koneksi.php";
 $query5 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT max(nota) as nota FROM transaksi");
 $data = mysqli_fetch_array($query5);
 $kodeBarang = $data['nota'];
- 
+
 // mengambil angka dari kode barang terbesar, menggunakan fungsi substr
 // dan diubah ke integer dengan (int)
 $urutan = (int) substr($kodeBarang, 3, 3);
- 
+
 // bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya
 $urutan++;
- 
+
 // membentuk kode barang baru
 // perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
 // misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
 // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
 $angka = "000";
 $kodeBarang = $angka . sprintf("%03s", $urutan);
- 
+
+
 if(isset($_POST['jenis'])){	
 $jeniss				= $_POST['jenis'];
 $jeniss2			= $_POST['jenis2'];
@@ -61,17 +69,19 @@ $tarif = $berat*$harga;
 $tarif2 = $berat2*$harga2;
 
 $tarif3 = $tarif+$tarif2;
+// $tgl_ambil = strtotime($_POST['tgl_ambil']);
+// if ($tgl_ambil) {
+//   $new_date = date('Y-m-d', $tgl_ambil);
+//   echo $new_date;
+// } else {
+//    echo 'Invalid Date: ' . $_POST['tgl_ambil'];
+//   // fix it.
+// }
+ $tgl_ambil = $_POST['tgl_ambil'];
 
-$pecah = explode("/", $tgl_ambil = $_POST['tgl_ambil']);
-if (checkdate($pecah[1], $pecah[0], $pecah[2])) echo "Tanggal Valid";
-else {
-	echo "Tanggal Tidak";
-}
 $timezone = "Asia/Jakarta";
 if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 $tgl_transaksi=date('Y-m-d');
-
-
 
 	
 	$input = mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', $tarif3, '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
@@ -83,7 +93,7 @@ $tgl_transaksi=date('Y-m-d');
 Transaksi Berhasil!</b></h4>';		
 		echo '
 		<b>Rincian Transaksi</b><br>
-		======================================================================<Br>
+		==============================<Br>
 		No. Nota : <b>'.$nota.'</b><br>
 		Konsumen : <b>'.$konsumen.'</b><br>
 		Jenis Laundry Kiloan :<li> <b>'.$jeniss.' - '.$berat.'</b></li>
@@ -93,7 +103,7 @@ Transaksi Berhasil!</b></h4>';
 		Jumlah : <b>Rp. ' . number_format( $tarif3, 0 , '' , '.' ) . ',-</b><br>
 		Tanggal Transaksi : <b>'.TanggalIndo($tgl_transaksi).'</b><br>
 		Tanggal Ambil : <b>'.TanggalIndo($tgl_ambil).'</b><br>
-		======================================================================
+		==============================
 		</div>
 		
 		';	
@@ -105,11 +115,13 @@ Transaksi Berhasil!</b></h4>';
 		
 	}
   }
-
-  header("location:transaksi/index.php")
  
 ?>
-	<form method="post" action="transaksi/index.php">
+	<form method="post">
+	<!-- <div class="form-group">
+            <label>Admin</label>
+            <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $hasil7['nama'] ?>" placeholder="Nomor Nota" readonly>
+        </div> -->
 		<div class="form-group">
             <label>No. Nota</label>
             <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $kodeBarang ?>" placeholder="Nomor Nota" readonly>
@@ -122,6 +134,7 @@ Transaksi Berhasil!</b></h4>';
 		<div class="form-group">
         	<label>Jenis</label>
             	<select  class="form-control" name="jenis">
+				<option value=""></option>
 					<?php
 						$tp2=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM jenis ORDER BY id");
 						while($r2=mysqli_fetch_array($tp2)){
@@ -129,8 +142,9 @@ Transaksi Berhasil!</b></h4>';
 				<option value="<?php echo $r2['jenis'];?>"><?php echo $r2['jenis'];?></option>
 			<?php } ?>
 				</select>
-			
+			<br>
 			<select  class="form-control" name="jenis2">
+			<option value=""></option>
 				<?php
 					$tp3=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM jenis2 ORDER BY id");
 					while($r3=mysqli_fetch_array($tp3)){
@@ -154,24 +168,18 @@ Transaksi Berhasil!</b></h4>';
         	<label><i style="color: purple;">Jumlah</i></label>
         	<input style="cursor: no-drop;" type="number" id="txt3" onkeyup="sum();" readonly>
     	</div>
-		<script>
-			// Row Inserting event
-		function Row_Inserting($rsold, $rsnew) {
-			// Enter your code here
-			// To cancel, set return value to FALSE
-			if (strtotime($rsnew["Tanggal_Awal"]) > strtotime($rsnew["Tanggal_Akhir"])) {
-				$this=setFailureMessage("Tanggal Awal harus lebih kecil atau sama dengan Tanggal Akhir.");    
-				return FALSE;
-			}
-			return TRUE;
-		}
-		</script>
+
 		<div class="form-group">
-    		<label>Tanggal Ambil</label>
+    		<label>Tanggal Transaksi</label>
+			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
+		</div>
+		
+		<div class="form-group">
+    		<label id="start">Tanggal Ambil</label>
     		<!-- <input type="date" class="form-control" id="start" name="trip-start"
 			value="2022-03-11"
 			min="2022-03-11" max="2030-12-31"> -->
-			<input type="date" class="form-control" id="<?php echo $rsnew ?>" name="tgl_ambil">
+			<input type="date" class="form-control" id="input.date" placeholder="dd-mm-yyyy"  name="tgl_ambil" min="today" max="+30d" > 
 		</div>
 
 			<pre>*Cek Data Dengan Teliti</pre>
@@ -203,10 +211,23 @@ function sum() {
 <script>
 	$(function() {
   			$("#datepicker").datepicker({
-			dateFormat: 'dd-mm-yy',
+			format: 'yyyy-mm-dd',
 			minDate: "today",
 			maxDate: "+30d",
 			});
-		$("#datepicker").datepicker("setDate", "1");
-		});
+		$("#datepicker").datepicker("setDate", "2");
+	});
+		
+	$("#input-date").focusout(function() {
+		var start = $(this).val(),
+		end   = new Date(),  
+		diff  = new Date(start - end),  
+		days  = diff/1000/60/60/24;  
+	
+		if (days >= 1) {
+			console.log("boleh");
+		} else {
+			console.log("tidak boleh");
+		}
+	});
 </script>
