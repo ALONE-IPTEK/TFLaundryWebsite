@@ -1,13 +1,13 @@
 <?php
+include "../koneksi.php";
 session_start();
 if ( !isset($_SESSION['username']) ) {
-    header('location:login.php'); 
+    header('location:../login.php'); 
 }
 else { 
     $usr = $_SESSION['username']; 
 }
-
-?>
+$query = mysqli_query($conn,"SELECT * FROM transaksi ORDER BY tgl_transaksi ASC");?>
 <style>
 	th{
 		border-style: solid; 
@@ -27,7 +27,7 @@ else {
 
 <div class='panel-body'> 
 	<div class="row">
-        <table style="border-style: solid; border-width: thin;" id='datatable' class='table table-hover'>
+        <table style="border-style: solid; border-width: thin;" id='rtable' class='table table-hover'>
             <thead>
                 <tr>
 					<th><i class='icon-terminal'></i> No</th>
@@ -48,29 +48,28 @@ else {
             </thead>
     <tbody>
 <?php
+
 $i=1;
-$tp=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM transaksi WHERE pengguna='$usr' ORDER BY tgl_transaksi");
-while($r=mysqli_fetch_array($tp)){
+while($data = mysqli_fetch_array($query)){
 ?>
 	<tr>
 		<td><?php echo $i;?></td>
-							 
-            <td><?php echo $r['konsumen'];?></td>
-            <td><?php echo $r['nota'];?></td>
-
-            <td><?php echo $r['jenis'];?></td>
-            <td><?php echo $r['jenis2'];?></td>
-			<td><?php echo'Rp.' . number_format( $r['tarif'], 0 , '' , '.' ) . ',-'?></td>
-			<td><?php echo'Rp.' . number_format( $r['tarif2'], 0 , '' , '.' ) . ',-'?></td>
-			<td><?php echo'Rp.' . number_format( $r['jumlah'], 0 , '' , '.' ) . ',-'?></td>
-			<td><?php echo $r['berat']?> Kg</td>
-			<td><?php echo $r['berat2']?> Kg</td>
-			<td><?php echo TanggalIndo($r['tgl_transaksi']);?></td>
-			<td><?php echo TanggalIndo($r['tgl_ambil']);?></td>
-			<td><a href="transaksi/kwitansi.php?id=<?php echo $r['id'];?>" target="_blank">Lihat Kwitansi</a></td>
+		<td><?php echo $data['pengguna'];?></td>		 
+        <td><?php echo $data['konsumen'];?></td>
+        <td><?php echo $data['nota'];?></td>
+        <td><?php echo $data['jenis'];?></td>
+        <td><?php echo $data['jenis2'];?></td>
+		<td><?php echo'Rp.' . number_format( $data['tarif'], 0 , '' , '.' ) . ',-'?></td>
+		<td><?php echo'Rp.' . number_format( $data['tarif2'], 0 , '' , '.' ) . ',-'?></td>
+		<td><?php echo'Rp.' . number_format( $data['jumlah'], 0 , '' , '.' ) . ',-'?></td>
+		<td><?php echo $data['berat']?> Kg</td>
+		<td><?php echo $data['berat2']?> Kg</td>
+		<td><?php echo TanggalIndo($data['tgl_transaksi']);?></td>
+		<td><?php echo TanggalIndo($data['tgl_ambil']);?></td>
+		<td><a href="transaksi/kwitansi.php?id=<?php echo $data['id'];?>" target="_blank">Lihat Kwitansi</a></td>
     </tr>
 	
-	<?php $i=$i+1;?>
+	<?php $i=$i+1; ?>
 <?php } ?>
 	</tbody>
 	

@@ -1,12 +1,18 @@
 <?php 
+
 session_start();
 if ( !isset($_SESSION['username']) ) {
-    header('location:login.php'); 
+    header('location: ../login.php'); 
 } 
 else { 
     $usr = $_SESSION['username']; 
 }
-
+$query7 = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
+$hasil7 = mysqli_fetch_array($query7);
+if (empty($hasil7['username'])) {
+	header('Location: ../login.php');
+}
+$p=isset($_GET['p'])?$_GET['p']:null;
 ?>
 
 <div class='panel panel-border panel-primary'>
@@ -20,13 +26,9 @@ else {
 <div class='panel-body'> 
 
 <?php
-include "../koneksi.php";
-$query7 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$usr'");
-$hasil7 = mysqli_fetch_array($query7);
-if (empty($hasil7['username'])) {
-    header('Location: ./login.php');
-}
-$query5 = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT max(nota) as nota FROM transaksi");
+
+
+$query5 = mysqli_query($conn, "SELECT max(nota) as nota FROM transaksi");
 $data = mysqli_fetch_array($query5);
 
 $kodeBarang = $data['nota'];
@@ -40,8 +42,8 @@ $kodeBarang = $angka . sprintf("%03s", $urutan);
 if(isset($_POST['jenis'])){	
 $jeniss				= $_POST['jenis'];
 $jeniss2			= $_POST['jenis2'];
-$query				= mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM jenis WHERE jenis = '$jeniss'");
-$query2 			= mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM jenis2 WHERE jenis2 = '$jeniss2'");
+$query				= mysqli_query($conn, "SELECT * FROM jenis WHERE jenis = '$jeniss'");
+$query2 			= mysqli_query($conn, "SELECT * FROM jenis2 WHERE jenis2 = '$jeniss2'");
 
 $hasil 				= mysqli_fetch_array($query);
 
@@ -50,7 +52,7 @@ $hasil2 			= mysqli_fetch_array($query2);
 $harga				= $hasil['harga'];
 $harga2				= $hasil2['harga'];
 
-$usr				= $_POST['pengguna'];
+$usr				= $hasil7['nama'];
 $berat				= $_POST['berat'];
 $berat2				= $_POST['berat2'];
 $konsumen			= $_POST['konsumen'];
@@ -75,7 +77,7 @@ if(function_exists('date_default_timezone_set')) date_default_timezone_set($time
 $tgl_transaksi=date('Y-m-d');
 
 	
-	$input = mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', $tarif3, '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$input = mysqli_query($conn, "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', $tarif3, '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	if($input){
 		
@@ -85,6 +87,8 @@ Transaksi Berhasil!</b></h4>';
 		echo '
 		<b>Rincian Transaksi</b><br>
 		==============================<Br>
+		Admin : <b>'.$usr.'</b><br>
+
 		No. Nota : <b>'.$nota.'</b><br>
 		Konsumen : <b>'.$konsumen.'</b><br>
 		Jenis Laundry Kiloan :<li> <b>'.$jeniss.' - '.$berat.'</b></li>
@@ -111,7 +115,7 @@ Transaksi Berhasil!</b></h4>';
 	<form method="post">
 	<div class="form-group">
             <label>Admin</label>
-            <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $hasil7['nama'] ?>" placeholder="Nomor Nota" readonly>
+            <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $hasil['nama'] ?>" placeholder="Nomor Nota" readonly>
         </div>
 		<div class="form-group">
             <label>No. Nota</label>
@@ -127,7 +131,7 @@ Transaksi Berhasil!</b></h4>';
             	<select  class="form-control" name="jenis">
 				<option value=""></option>
 					<?php
-						$tp2=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM jenis ORDER BY id");
+						$tp2=mysqli_query($conn, "SELECT * FROM jenis ORDER BY id");
 						while($r2=mysqli_fetch_array($tp2)){
 					?>
 				<option value="<?php echo $r2['jenis'];?>"><?php echo $r2['jenis'];?></option>
@@ -137,7 +141,7 @@ Transaksi Berhasil!</b></h4>';
 			<select  class="form-control" name="jenis2">
 			<option value=""></option>
 				<?php
-					$tp3=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM jenis2 ORDER BY id");
+					$tp3=mysqli_query($conn, "SELECT * FROM jenis2 ORDER BY id");
 					while($r3=mysqli_fetch_array($tp3)){
 				?>
 			<option value="<?php echo $r3['jenis2'];?>"><?php echo $r3['jenis2'];?></option>
@@ -170,7 +174,7 @@ Transaksi Berhasil!</b></h4>';
     		<!-- <input type="date" class="form-control" id="start" name="trip-start"
 			value="2022-03-11"
 			min="2022-03-11" max="2030-12-31"> -->
-			<input type="date" class="form-control" id="input.date" placeholder="dd-mm-yyyy"  name="tgl_ambil" min="today" max="+30d" > 
+			<input type="date" class="form-control" id="input-date" name="tgl_ambil" min="today" max="+30d" > 
 		</div>
 
 			<pre>*Cek Data Dengan Teliti</pre>
