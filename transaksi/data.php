@@ -7,7 +7,7 @@ if ( !isset($_SESSION['username']) ) {
 else { 
     $usr = $_SESSION['username']; 
 }
-$query = mysqli_query($conn,"SELECT * FROM transaksi ORDER BY tgl_transaksi ASC");?>
+$query = mysqli_query($conn, "SELECT * FROM transaksi  ORDER BY tgl_transaksi");?>
 <style>
 	th{
 		border-style: solid; 
@@ -27,10 +27,11 @@ $query = mysqli_query($conn,"SELECT * FROM transaksi ORDER BY tgl_transaksi ASC"
 
 <div class='panel-body'> 
 	<div class="row">
-        <table style="border-style: solid; border-width: thin;" id='rtable' class='table table-hover'>
+        <table style="border-style: solid; border-width: thin;" id='datatable' class='table table-hover'>
             <thead>
                 <tr>
 					<th><i class='icon-terminal'></i> No</th>
+					<th><i class='icon-terminal'></i> Admin</th>
 					<th><i class='icon-signal'></i> Konsumen</th>
 					<th><i class='icon-signal'></i> Nota</th>
 					<th><i class='icon-terminal'></i> Jenis Kiloan</th>

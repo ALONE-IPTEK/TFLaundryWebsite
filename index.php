@@ -7,7 +7,7 @@ else {
     $usr = $_SESSION['username']; 
 }
 require_once('koneksi.php');
-$query = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$usr'");
+$query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
 $hasil = mysqli_fetch_array($query);
 if (empty($hasil['username'])) {
     header('Location: ./login.php');
@@ -39,7 +39,7 @@ $date=date('Y-m-d');
 
         <title>T & F Laundry</title>
 
-       <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
         <link href="assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
         <link href="css/material-design-iconic-font.min.css" rel="stylesheet">
@@ -225,28 +225,31 @@ $date=date('Y-m-d');
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initialize" async defer></script>
         <script type="text/javascript"> </script>  
-      <script>
-  $( function() {
-    $( "#datepicker" ).datepicker({                  
-        minDate: moment().add('d', 1).toDate(),
-    });
-  } );
-  </script>
+        <script>
+            $(function() {
+  			    $("#datepicker").datepicker({
+                    dateFormat: 'dd-mm-yyyy',
+                    minDate: "today",
+                    maxDate: "+30d",
+                    });
+                $("#datepicker").datepicker("setDate", "1");
+            });
+        </script>
 
-  <script>
-  $(".date").focusout(function() {
-   var start = $(this).val(),
-    end   = new Date(),  
-    diff  = new Date(start - end),  
-    days  = diff/1000/60/60/24;  
-  
-    if (days >= 1) {
-          console.log("boleh");
-    } else {
-          console.log("tidak boleh");
-    }
-});
-  </script>
+        <script>
+            $("#inputdate").inputdate(function() {
+                var start = $(this).val(),
+                end   = new Date(),  
+                diff  = new Date(start - end),  
+                days  = diff/1000/60/60/24;  
+            
+                if (days >= 1) {
+                    console.log("boleh");
+                } else {
+                    console.log("tidak boleh");
+                }
+            });
+        </script>
 
 
         <script type="text/javascript">
