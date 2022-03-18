@@ -4,7 +4,7 @@ if ( !isset($_SESSION['username']) ) {
     header('location:login.php'); 
 }
 else { 
-    $usr = $_SESSION['username']; 
+    $usr = $_SESSION['username'];
 }
 require_once('koneksi.php');
 $query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
