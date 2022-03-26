@@ -36,6 +36,7 @@ $date=date('Y-m-d');
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="images/favicon_1.ico">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
 
         <title>T & F Laundry</title>
 
@@ -221,18 +222,36 @@ $date=date('Y-m-d');
         <script type="text/javascript" src="assets/spinner/spinner.min.js"></script>
         <script src="assets/select2/select2.min.js" type="text/javascript"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initialize" async defer></script>
         <script type="text/javascript"> </script>  
+
+        <script type="text/javascript">
+			$(function () {
+				$('#datetimepicker').datetimepicker({
+					format: 'YYYY-MM-DD HH:mm',
+                });
+				
+				// $('#datepicker').datetimepicker({
+					// format: 'DD MMMM YYYY',
+				// });
+				
+				// $('#timepicker').datetimepicker({
+					// format: 'HH:mm'
+				// });
+			});
+		</script>
         <script>
             $(function() {
   			    $("#datepicker").datepicker({
-                    dateFormat: 'dd-mm-yyyy',
+                    dateFormat: 'yy-mm-dd',
                     minDate: "today",
-                    maxDate: "+30d",
+                    maxDate: "+120d",
                     });
-                $("#datepicker").datepicker("setDate", "1");
+                $("#datepicker").datepicker("setDate", "3");
             });
         </script>
 

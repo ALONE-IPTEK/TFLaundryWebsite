@@ -47,39 +47,39 @@ $cekuser = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHER
   }
 }
 ?>
-									<form method="post">
-																		 <div class="form-group">
-                                                <label>NIK</label>
-                                                <input type="text" class="form-control" name="nik" placeholder="Masukan Nomor Induk Karyawan" required>
-                                            </div>
-									 <div class="form-group">
-                                                <label>Nama</label>
-                                                <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Karyawan" required>
-                                            </div>
-											 <div class="form-group">
-                                                <label>Alamat</label>
-                                                <input type="text" class="form-control" name="alamat" placeholder="Alamat Karyawan" required>
-                                            </div>
-											 <div class="form-group">
-                                                <label>Telp</label>
-                                                <input type="text" class="form-control" name="telp" placeholder="Masukan No. Telepon Karyawan" required>
-                                            </div>
-																						 <div class="form-group">
-                                                <label>Gender</label>
-                                                <select class="form-control" name="gender">
-												<option value="Laki laki">Laki laki</option>
-												<option value="Perempuan">Perempuan</option>
-												</select>
-                                            </div>
- <div class="form-group">
-                                                <label>Username</label>
-                                                <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
-                                            </div>
- <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
-                                            </div>
-<button type="submit" class="btn btn-primary waves-effect waves-light">Tambah</button>
+<form method="post">
+    <div class="form-group">
+        <label>NIK</label>
+        <input type="text" class="form-control" name="nik" placeholder="Masukan Nomor Induk Karyawan" required>
+    </div>
+    <div class="form-group">
+        <label>Nama</label>
+        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Karyawan" required>
+    </div>
+	<div class="form-group">
+        <label>Alamat</label>
+        <input type="text" class="form-control" name="alamat" placeholder="Alamat Karyawan" required>
+    </div>
+	<div class="form-group">
+        <label>Telp</label>
+        <input type="text" class="form-control" name="telp" placeholder="Masukan No. Telepon Karyawan" required>
+    </div>
+	<div class="form-group">
+        <label>Gender</label>
+            <select class="form-control" name="gender">
+				<option value="Laki laki">Laki laki</option>
+				<option value="Perempuan">Perempuan</option>
+			</select>
+    </div>
+    <div class="form-group">
+        <label>Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary waves-effect waves-light">Tambah</button>
 </form>
                                      </div>
 									 
