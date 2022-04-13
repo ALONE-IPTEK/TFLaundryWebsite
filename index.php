@@ -7,7 +7,7 @@ else {
     $usr = $_SESSION['username'];
 }
 require_once('koneksi.php');
-$query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
+$query = mysqli_query($konek, "SELECT * FROM pengguna WHERE username = '$usr'");
 $hasil = mysqli_fetch_array($query);
 if (empty($hasil['username'])) {
     header('Location: ./login.php');

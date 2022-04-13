@@ -1,9 +1,5 @@
 <?php
-/*
-*Library untuk pemmbuatan aplikasi-aplikasi sederhana
-*Oleh : Ahyarudin
-*www.ayayayank.com
-*/
+
 Class KwtConfig{
 	function __Construct(){
 		$this->kwNumPattern = "/KHS-KWT/".$this->Tanggal('romawi')."/".$this->Tanggal('th');

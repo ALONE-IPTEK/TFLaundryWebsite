@@ -11,10 +11,10 @@ else {
 require ("lib/fpdf/fpdf.php");
 require("lib/lib-function.php");
 require("../koneksi.php");
-$query = mysqli_query($conn, "SELECT * FROM transaksi WHERE id='$_GET[id]'");
+$query = mysqli_query($konek, "SELECT * FROM transaksi WHERE id='$_GET[id]'");
 $hasil = mysqli_fetch_array($query);
 $hhh=$hasil['pengguna'];
-$query2 = mysqli_query($conn, "SELECT * FROM pengguna WHERE username='$hhh'");
+$query2 = mysqli_query($konek, "SELECT * FROM pengguna WHERE username='$hhh'");
 $hasil2 = mysqli_fetch_array($query2);
 
 function TanggalIndo($date){
