@@ -17,7 +17,7 @@
 			<tbody>
 				<?php
 					$i=1;
-					$tp=mysqli_query($konek, "SELECT * FROM pengguna WHERE level='Karyawan' ORDER BY id ");
+					$tp=mysqli_query($conn, "SELECT * FROM pengguna WHERE level='Karyawan' ORDER BY id ");
 					while($r=mysqli_fetch_array($tp)){
 				?>
 				<tr>

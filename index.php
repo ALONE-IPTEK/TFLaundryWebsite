@@ -7,7 +7,7 @@ else {
     $usr = $_SESSION['username'];
 }
 require_once('koneksi.php');
-$query = mysqli_query($konek, "SELECT * FROM pengguna WHERE username = '$usr'");
+$query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
 $hasil = mysqli_fetch_array($query);
 if (empty($hasil['username'])) {
     header('Location: ./login.php');
@@ -222,12 +222,14 @@ $date=date('Y-m-d');
         <script type="text/javascript" src="assets/spinner/spinner.min.js"></script>
         <script src="assets/select2/select2.min.js" type="text/javascript"></script>
 
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initialize" async defer></script>
         <script type="text/javascript"> </script>  
+        
 
         <script type="text/javascript">
 			$(function () {
@@ -245,15 +247,16 @@ $date=date('Y-m-d');
 			});
 		</script>
         <script>
-            $(function() {
-  			    $("#datepicker").datepicker({
-                    dateFormat: 'yy-mm-dd',
-                    minDate: "today",
-                    maxDate: "+120d",
-                    });
-                $("#datepicker").datepicker("setDate", "3");
+        $(function() {
+  			$("#datepicker").datepicker
+			  	({
+                	dateFormat: 'yy-mm-dd',
+                	minDate: "today",
+                	maxDate: "+120d",
+            	});
+            $("#datepicker").datepicker("setDate", "3");
             });
-        </script>
+    </script> 
 
         <script>
             $("#inputdate").inputdate(function() {

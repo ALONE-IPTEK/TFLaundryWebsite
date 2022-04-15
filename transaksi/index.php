@@ -37,8 +37,8 @@ $kodeBarang = $angka . sprintf("%03s", $urutan);
 if(isset($_POST['jenis'])){	
 $jeniss				= $_POST['jenis'];
 $jeniss2			= $_POST['jenis2'];
-$query				= mysqli_query($konek, "SELECT * FROM jenis WHERE jenis = '$jeniss'");
-$query2 			= mysqli_query($konek, "SELECT * FROM jenis2 WHERE jenis2 = '$jeniss2'");
+$query				= mysqli_query($conn, "SELECT * FROM jenis WHERE jenis = '$jeniss'");
+$query2 			= mysqli_query($conn, "SELECT * FROM jenis2 WHERE jenis2 = '$jeniss2'");
 
 $hasil 				= mysqli_fetch_array($query);
 
@@ -91,7 +91,7 @@ if(function_exists('date_default_timezone_set')) date_default_timezone_set($time
 $tgl_transaksi=date('Y-m-d');
 
 	
-	$input = mysqli_query($konek, "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', $tarif3, '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$input = mysqli_query($conn, "INSERT INTO transaksi VALUES(NULL, '$jeniss', '$jeniss2', '$tarif', '$tarif2', $tarif3, '0', '$tgl_transaksi', '$tgl_ambil', '$berat', '$berat2' ,'$usr','$konsumen', '$nota')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	if($input){
 		
@@ -146,7 +146,7 @@ Transaksi Berhasil!</b></h4>';
             	<select required  class="form-control" name="jenis">
 				<option ></option>
 					<?php
-						$tp2=mysqli_query($konek, "SELECT * FROM jenis ORDER BY id");
+						$tp2=mysqli_query($conn, "SELECT * FROM jenis ORDER BY id");
 						while($r2=mysqli_fetch_array($tp2)){
 					?>
 				<option value="<?php echo $r2['jenis'];?>" required><?php echo $r2['jenis'];?></option>
@@ -156,7 +156,7 @@ Transaksi Berhasil!</b></h4>';
 			<select  class="form-control" name="jenis2">
 			<option ></option>
 				<?php
-					$tp3=mysqli_query($konek, "SELECT * FROM jenis2 ORDER BY id");
+					$tp3=mysqli_query($conn, "SELECT * FROM jenis2 ORDER BY id");
 					while($r3=mysqli_fetch_array($tp3)){
 				?>
 			<option value="<?php echo $r3['jenis2'];?>"><?php echo $r3['jenis2'];?></option>
@@ -185,7 +185,7 @@ Transaksi Berhasil!</b></h4>';
 		</div>
 		
 		<div class="form-group">
-    		<label id="start">Tanggal Ambil</label>
+    		<label>Tanggal Ambil</label>
     		<!-- <input type="date" class="form-control" id="start" name="trip-start"
 			value="2022-03-11"
 			min="2022-03-11" max="2030-12-31"> -->
@@ -197,7 +197,20 @@ Transaksi Berhasil!</b></h4>';
 			<button type="submit" class="btn btn-primary waves-effect waves-light">Buat Transaksi</button>
 		</form>
     </div>
-</div> 
+	
+</div>
+
+	<script>
+        $(function() {
+  			$("#datepicker").datepicker
+			  	({
+                	dateFormat: 'yy-mm-dd',
+                	minDate: "today",
+                	maxDate: "+120d",
+            	});
+            $("#datepicker").datepicker("setDate", "3");
+            });
+    </script> 
 <script>
 	function sum() {
 		//   var txtFirstNumberValue = document.getElementById('txt1').value;
@@ -217,6 +230,7 @@ Transaksi Berhasil!</b></h4>';
 		// }
 
 </script>
+
 
 <script>
 	$("#inputdate").inputdate(function() {

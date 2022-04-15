@@ -7,7 +7,7 @@ if ( !isset($_SESSION['username']) ) {
 else { 
     $usr = $_SESSION['username']; 
 }
-$query = mysqli_query($konek, "SELECT * FROM transaksi  ORDER BY tgl_transaksi");?>
+$query = mysqli_query($conn, "SELECT * FROM transaksi  ORDER BY tgl_transaksi");?>
 <style>
 	th{
 		border-style: solid; 
