@@ -18,4 +18,5 @@ $database="db_laundry";
 $conn =($GLOBALS["___mysqli_ston"] = mysqli_connect($host,  $user,  $pass));
 mysqli_select_db($conn, $database);
 date_default_timezone_set("Asia/Jakarta");
+
 ?>

@@ -1,4 +1,6 @@
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
 <div class='panel panel-border panel-primary'>
     <div class='panel-heading'> 
        	<h3 class='panel-title'><i class='fa fa-user-plus'></i> Buat Transaksi</h3> 
@@ -181,7 +183,7 @@ Transaksi Berhasil!</b></h4>';
 
 		<div class="form-group">
     		<label>Tanggal Transaksi</label>
-			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
+			<input style="cursor: no-drop;" type="text" id="datepicker" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
 		</div>
 		
 		<div class="form-group">
@@ -199,18 +201,6 @@ Transaksi Berhasil!</b></h4>';
     </div>
 	
 </div>
-
-	<script>
-        $(function() {
-  			$("#datepicker").datepicker
-			  	({
-                	dateFormat: 'yy-mm-dd',
-                	minDate: "today",
-                	maxDate: "+120d",
-            	});
-            $("#datepicker").datepicker("setDate", "3");
-            });
-    </script> 
 <script>
 	function sum() {
 		//   var txtFirstNumberValue = document.getElementById('txt1').value;
