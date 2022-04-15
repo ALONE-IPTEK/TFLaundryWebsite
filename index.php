@@ -36,7 +36,10 @@ $date=date('Y-m-d');
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="images/favicon_1.ico">
+        
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
 
         <title>T & F Laundry</title>
 
@@ -222,7 +225,9 @@ $date=date('Y-m-d');
         <script type="text/javascript" src="assets/spinner/spinner.min.js"></script>
         <script src="assets/select2/select2.min.js" type="text/javascript"></script>
 
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
@@ -231,11 +236,11 @@ $date=date('Y-m-d');
         <script type="text/javascript"> </script>  
         
 
-        <script type="text/javascript">
-			$(function () {
-				$('#datetimepicker').datetimepicker({
-					format: 'YYYY-MM-DD HH:mm',
-                });
+    <script type="text/javascript">
+		$(function () {
+			$('#datetimepicker').datetimepicker({
+				format: 'YYYY-MM-DD HH:mm',
+            });
 				
 				// $('#datepicker').datetimepicker({
 					// format: 'DD MMMM YYYY',
@@ -245,40 +250,58 @@ $date=date('Y-m-d');
 					// format: 'HH:mm'
 				// });
 			});
-		</script>
-        <script>
+	</script>
+    <script>
         $(function() {
   			$("#datepicker").datepicker
 			  	({
                 	dateFormat: 'yy-mm-dd',
                 	minDate: "today",
-                	maxDate: "+120d",
+                	maxDate: "+120d"
             	});
             $("#datepicker").datepicker("setDate", "3");
             });
     </script> 
+    <script>
+        function sum() {
+            //   var txtFirstNumberValue = document.getElementById('txt1').value;
+            var txtSecondNumberValue = document.getElementById('txt2').value;
+            var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
+            if (!isNaN(result)) {
+                document.getElementById('txt3').value = result;
+            }
+        }
 
-        <script>
-            $("#inputdate").inputdate(function() {
-                var start = $(this).val(),
-                end   = new Date(),  
-                diff  = new Date(start - end),  
-                days  = diff/1000/60/60/24;  
+            // function hanyaAngka(evt) {
+            //   var charCode = (evt.which) ? evt.which : event.keyCode
+            //    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    
+            //     return false;
+            //   return true;
+            // }
+    </script>
+
+    <script>
+        $("#inputdate").inputdate(function() {
+            var start = $(this).val(),
+            end   = new Date(),  
+            diff  = new Date(start - end),  
+            days  = diff/1000/60/60/24;  
             
-                if (days >= 1) {
-                    console.log("boleh");
-                } else {
-                    console.log("tidak boleh");
-                }
-            });
-        </script>
+            if (days >= 1) {
+                console.log("boleh");
+            } else {
+                console.log("tidak boleh");
+            }
+        });
+    </script>
 
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                dataTable = $('#datatable').dataTable();
-            } );
-        </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            dataTable = $('#datatable').dataTable();
+        });
+    </script>
 
 	</body>
 </html>

@@ -1,6 +1,3 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
 <div class='panel panel-border panel-primary'>
     <div class='panel-heading'> 
        	<h3 class='panel-title'><i class='fa fa-user-plus'></i> Buat Transaksi</h3> 
@@ -183,7 +180,7 @@ Transaksi Berhasil!</b></h4>';
 
 		<div class="form-group">
     		<label>Tanggal Transaksi</label>
-			<input style="cursor: no-drop;" type="text" id="datepicker" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
+			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
 		</div>
 		
 		<div class="form-group">
@@ -199,45 +196,5 @@ Transaksi Berhasil!</b></h4>';
 			<button type="submit" class="btn btn-primary waves-effect waves-light">Buat Transaksi</button>
 		</form>
     </div>
-	
 </div>
-<script>
-	function sum() {
-		//   var txtFirstNumberValue = document.getElementById('txt1').value;
-		var txtSecondNumberValue = document.getElementById('txt2').value;
-		var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
-		if (!isNaN(result)) {
-			document.getElementById('txt3').value = result;
-		}
-	}
 
-		// function hanyaAngka(evt) {
-		//   var charCode = (evt.which) ? evt.which : event.keyCode
-		//    if (charCode > 31 && (charCode < 48 || charCode > 57))
- 
-		//     return false;
-		//   return true;
-		// }
-
-</script>
-
-
-<script>
-	$("#inputdate").inputdate(function() {
-		var start = $(this).val(),
-		end   = new Date(),  
-		diff  = new Date(start - end),  
-		days  = diff/1000/60/60/24;  
-	
-		if (days >= 1) {
-			console.log("boleh");
-		} else {
-			console.log("tidak boleh");
-		}
-	});
-</script>
-<script type="text/javascript">
-            $(document).ready(function() {
-                dataTable = $('#datatable').dataTable();
-            } );
-</script>
