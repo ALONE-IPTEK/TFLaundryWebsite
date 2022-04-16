@@ -64,7 +64,7 @@ while($data = mysqli_fetch_array($query)){
 		<td><?php echo'Rp.' . number_format( $data['tarif2'], 0 , '' , '.' ) . ',-'?></td>
 		<td><?php echo'Rp.' . number_format( $data['jumlah'], 0 , '' , '.' ) . ',-'?></td>
 		<td><?php echo $data['berat']?> Kg</td>
-		<td><?php echo $data['berat2']?> Kg</td>
+		<td><?php echo $data['berat2']?> Pcs</td>
 		<td><?php echo TanggalIndo($data['tgl_transaksi']);?></td>
 		<td><?php echo TanggalIndo($data['tgl_ambil']);?></td>
 		<td><a href="transaksi/kwitansi.php?id=<?php echo $data['id'];?>" target="_blank">Lihat Kwitansi</a></td>

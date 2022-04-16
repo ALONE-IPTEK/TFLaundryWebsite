@@ -36,7 +36,7 @@ $date=date('Y-m-d');
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="images/favicon_1.ico">
-        
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
@@ -141,6 +141,7 @@ $date=date('Y-m-d');
                     <li>
                         <a href="?p=maps" class="waves-effect"><i class="fa fa-map-marker"></i><span> Maps </span></a>
                     </li>
+                    
 			        <li class="has_sub">
                     <a href="#" class="waves-effect"><i class="fa fa-list"></i> <span> Data </span> <span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
