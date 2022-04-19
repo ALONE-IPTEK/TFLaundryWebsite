@@ -233,8 +233,25 @@ $date=date('Y-m-d');
         <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initialize" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?keyAIzaSyDO032z_UgzT78ZclW6iHEFxsUpFbnsFWg=&callback=initialize" async defer></script>
         <script type="text/javascript"> </script>  
+        <!-- API : AIzaSyDO032z_UgzT78ZclW6iHEFxsUpFbnsFWg -->
+
+        <script>
+            // fungsi initialize untuk mempersiapkan peta
+            function initialize() {
+            var propertiPeta = {
+                center:new google.maps.LatLng(-6.1251386,106.7166616,15),
+                zoom:20,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+            
+            var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+            }
+
+            // event jendela di-load  
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
         
 
     <script type="text/javascript">
