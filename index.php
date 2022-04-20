@@ -10,7 +10,7 @@ require_once('koneksi.php');
 $query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
 $hasil = mysqli_fetch_array($query);
 if (empty($hasil['username'])) {
-    header('Location: ./login.php');
+    header('Location: login.php');
 }
 function TanggalIndo($date){
 	$BulanIndo = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
@@ -233,10 +233,18 @@ $date=date('Y-m-d');
         <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?keyAIzaSyDO032z_UgzT78ZclW6iHEFxsUpFbnsFWg=&callback=initialize" async defer></script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvJxm-VzziMUCDs3vKul6jhbXfYhnPF3w&callback=initialize"></script>
+        
         <script type="text/javascript"> </script>  
         <!-- API : AIzaSyDO032z_UgzT78ZclW6iHEFxsUpFbnsFWg -->
-
+        <!-- <script>
+            function initialize(){
+                var map = new google.maps.Map(document.getElementById('googleMap'),{
+                    center:new google.maps.LatLng(-6.229728,106.6894312,11),
+                    zoom: 12
+                });
+            }
+        </script> -->
         <script>
             // fungsi initialize untuk mempersiapkan peta
             function initialize() {
