@@ -10,7 +10,7 @@ require_once('koneksi.php');
 $query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
 $hasil = mysqli_fetch_array($query);
 if (empty($hasil['username'])) {
-    header('Location: ./login.php');
+    header('Location: login.php');
 }
 function TanggalIndo($date){
 	$BulanIndo = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
@@ -233,76 +233,93 @@ $date=date('Y-m-d');
         <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initialize" async defer></script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARhWUhoaMVsNvTFf2rXbW3sIFSk_tLUKk&callback=initialize"></script>
+        
         <script type="text/javascript"> </script>  
+        <!-- API : AIzaSyDO032z_UgzT78ZclW6iHEFxsUpFbnsFWg -->
+        <script>
+            // fungsi initialize untuk mempersiapkan peta
+            function initialize() {
+            var propertiPeta = {
+                center:new google.maps.LatLng(-6.1251386,106.7166616,15),
+                zoom:20,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+            
+            var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+            }
+
+            // event jendela di-load  
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
         
 
-    <script type="text/javascript">
-		$(function () {
-			$('#datetimepicker').datetimepicker({
-				format: 'YYYY-MM-DD HH:mm',
-            });
-				
-				// $('#datepicker').datetimepicker({
-					// format: 'DD MMMM YYYY',
-				// });
-				
-				// $('#timepicker').datetimepicker({
-					// format: 'HH:mm'
-				// });
-			});
-	</script>
-    <script>
-        $(function() {
-  			$("#datepicker").datepicker
-			  	({
-                	dateFormat: 'yy-mm-dd',
-                	minDate: "today",
-                	maxDate: "+120d"
-            	});
-            $("#datepicker").datepicker("setDate", "3");
-            });
-    </script> 
-    <script>
-        function sum() {
-            //   var txtFirstNumberValue = document.getElementById('txt1').value;
-            var txtSecondNumberValue = document.getElementById('txt2').value;
-            var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
-            if (!isNaN(result)) {
-                document.getElementById('txt3').value = result;
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD HH:mm',
+                });
+                    
+                    // $('#datepicker').datetimepicker({
+                        // format: 'DD MMMM YYYY',
+                    // });
+                    
+                    // $('#timepicker').datetimepicker({
+                        // format: 'HH:mm'
+                    // });
+                });
+        </script>
+        <script>
+            $(function() {
+                $("#datepicker").datepicker
+                    ({
+                        dateFormat: 'yy-mm-dd',
+                        minDate: "today",
+                        maxDate: "+120d"
+                    });
+                $("#datepicker").datepicker("setDate", "3");
+                });
+        </script> 
+        <script>
+            function sum() {
+                //   var txtFirstNumberValue = document.getElementById('txt1').value;
+                var txtSecondNumberValue = document.getElementById('txt2').value;
+                var result = /* parseInt(txtFirstNumberValue) - */ parseInt(txtSecondNumberValue);
+                if (!isNaN(result)) {
+                    document.getElementById('txt3').value = result;
+                }
             }
-        }
 
-            // function hanyaAngka(evt) {
-            //   var charCode = (evt.which) ? evt.which : event.keyCode
-            //    if (charCode > 31 && (charCode < 48 || charCode > 57))
-    
-            //     return false;
-            //   return true;
-            // }
-    </script>
+                // function hanyaAngka(evt) {
+                //   var charCode = (evt.which) ? evt.which : event.keyCode
+                //    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        
+                //     return false;
+                //   return true;
+                // }
+        </script>
 
-    <script>
-        $("#inputdate").inputdate(function() {
-            var start = $(this).val(),
-            end   = new Date(),  
-            diff  = new Date(start - end),  
-            days  = diff/1000/60/60/24;  
-            
-            if (days >= 1) {
-                console.log("boleh");
-            } else {
-                console.log("tidak boleh");
-            }
-        });
-    </script>
+        <script>
+            $("#inputdate").inputdate(function() {
+                var start = $(this).val(),
+                end   = new Date(),  
+                diff  = new Date(start - end),  
+                days  = diff/1000/60/60/24;  
+                
+                if (days >= 1) {
+                    console.log("boleh");
+                } else {
+                    console.log("tidak boleh");
+                }
+            });
+        </script>
 
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            dataTable = $('#datatable').dataTable();
-        });
-    </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                dataTable = $('#datatable').dataTable();
+            });
+        </script>
 
 	</body>
 </html>
