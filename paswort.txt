@@ -1,6 +1,0 @@
-
-username:sityoy
-paswort: waduk123
-
-Username : si_tyoy
-Password : Demikamu
