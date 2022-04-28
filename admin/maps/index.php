@@ -7,6 +7,52 @@
 <br/>
               <a href="https://maps.google.com" >  Ke Maps Browser
             </div> -->
-            <div id="googleMap" style="width:100%;height:380px;"></div>
+
+
+            <iframe id="frame-map" src="https://maps.google.com/maps?q=Surabaya&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%"
+                height="380" frameborder="0" style="border:0" allowfullscreen>
+            </iframe>
             
-            
+
+            <script>
+    var track = {
+      // (B) PROPERTIES
+      map : null, // HTML map
+      delay : 10000, // Delay between location refresh
+
+      // (C) INIT
+      init : () => {
+        track.map = document.getElementById("map");
+        track.show();
+        setInterval(track.show, track.delay);
+      },
+
+      // (D) GET DATA FROM SERVER AND UPDATE MAP
+      show : () => {
+        // (D1) DATA
+        var data = new FormData();
+        data.append("req", "getAll");
+
+        // (D2) AJAX FETCH
+        fetch("maps/adminpanel.php", { method:"POST", body:data })
+        .then(res => res.json()).then((res) => {
+          if (res.status==1) { for (let rider of res.message) {
+            var row = document.createElement("div");
+            row.innerHTML = "Rider ID " + rider.rider_id +
+                            " | Lng " + rider.track_lng +
+                            " | Lat " + rider.track_lat +
+                            " | Time " + rider.track_time;
+
+                            
+          $('#frame-map').attr('src',`https://maps.google.com/maps?q=${rider.track_lat},${rider.track_lng}&t=&z=16&ie=UTF8&iwloc=&output=embed`);
+            track.map.appendChild(row);
+          }} else { track.map.innerHTML = res.message; }
+
+
+
+
+        }).catch((err) => { console.error(err); });
+      }
+    };
+    window.addEventListener("DOMContentLoaded", track.init);
+    </script>

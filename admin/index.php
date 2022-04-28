@@ -240,11 +240,13 @@ $date=date('Y-m-d');
         <script>
             // fungsi initialize untuk mempersiapkan peta
             function initialize() {
-            var propertiPeta = {
-                center:new google.maps.LatLng(-6.1251386,106.7166616,15),
-                zoom:20,
-                mapTypeId:google.maps.MapTypeId.ROADMAP
-            };
+            // var propertiPeta = {
+            //     center:new google.maps.LatLng(-6.1251386,106.7166616,15),
+            //     zoom:20,
+            //     mapTypeId:google.maps.MapTypeId.ROADMAP
+            // };
+
+            $('#frame-map').attr('src','https://maps.google.com/maps?q=-6.1251386,106.7166616&t=&z=16&ie=UTF8&iwloc=&output=embed');
             
             var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
             }
