@@ -57,7 +57,7 @@ $logout = isset($_GET['logout']);
             <div class="panel panel-color panel-primary panel-pages">
                 <div class="panel-heading bg-img"> 
                     <div class="bg-overlay"></div>
-                    <h3 class="text-center m-t-10 text-white"> Masuk Untuk Melanjutkan </h3>
+                    <h3 class="text-center m-t-10 text-white"> MASUK UNTUK MELANJUTKAN</h3>
                 </div> 
 
 
@@ -85,7 +85,7 @@ echo '                        <div class="alert alert-warning alert-dismissable"
 											<p>Anda telah berhasil logout</p>
                                         </div>';
  }
- 
+
 
 
 ?>
