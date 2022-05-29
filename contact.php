@@ -48,7 +48,7 @@
 
     <!-- Navbar Start -->
     <?php
-        include "Nav.php";
+        include "Nav.html";
     ?>
     <!-- Navbar End -->
 
