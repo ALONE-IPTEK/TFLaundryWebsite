@@ -476,7 +476,7 @@
 
     <!-- Footer Start -->
     <?php 
-        include "footer.php";
+        include "footer.html";
     ?>
     <!-- Footer End -->
 
