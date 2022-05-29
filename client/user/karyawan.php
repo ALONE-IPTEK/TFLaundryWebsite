@@ -29,10 +29,10 @@ echo "<div class='panel panel-border panel-primary'>
 							while($r=mysqli_fetch_array($tp)){
 						    //$hargaa = $r['harga'];
                              echo"<tr>
-							  <td>$i</td>
-							   <td>$r[nik]</td>
-							    <td>$r[nama]</td>
-								 <td>$r[username]</td>
+                                    <td>$i</td>
+                                    <td>$r[nik]</td>
+                                    <td>$r[nama]</td>
+                                    <td>$r[username]</td>
                                     <td>$r[alamat]</td>
 									<td>$r[telp]</td>
 									<td>$r[gender]</td>

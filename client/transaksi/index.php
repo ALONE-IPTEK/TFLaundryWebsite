@@ -132,66 +132,30 @@ Transaksi Berhasil!</b></h4>';
             <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $hasil['nama'] ?>" placeholder="Nomor Nota" readonly>
         </div> -->
 		<div class="form-group">
-            <label>No. Nota</label>
-            <input style="cursor: no-drop;"type="number" class="form-control" name="nota" value="<?php echo $kodeBarang ?>" placeholder="Nomor Nota" readonly>
+            <label>Jenis Laundry</label>
+            <select required  class="form-control" name="jenis">
+			<option></option>
+            <option>Kiloan</option>
+            <option>Satuan</option>
+			</select>
         </div>
 		
-		<div class="form-group">
-            <label>Konsumen</label>
-			<input type="text" class="form-control" name="konsumen" placeholder="Masukkan Nama" required>
-		</div>
-		<div class="form-group">
-        	<label>Jenis</label>
-            	<select required  class="form-control" name="jenis">
-				<option ></option>
-					<?php
-						$tp2=mysqli_query($conn, "SELECT * FROM jenis ORDER BY id");
-						while($r2=mysqli_fetch_array($tp2)){
-					?>
-				<option value="<?php echo $r2['jenis'];?>" required><?php echo $r2['jenis'];?></option>
-					<?php } ?>
-				</select>
-			<br>
-			<select  class="form-control" name="jenis2">
-			<option ></option>
-				<?php
-					$tp3=mysqli_query($conn, "SELECT * FROM jenis2 ORDER BY id");
-					while($r3=mysqli_fetch_array($tp3)){
-				?>
-			<option value="<?php echo $r3['jenis2'];?>"><?php echo $r3['jenis2'];?></option>
-			<?php } ?>
-			</select>
-		</div>
-
-		<div class="form-group">
-        	<label>Berat (Dalam <i style="color: blue;">Kilogram</i>)</label>
-        	<input type="text" class="form-control" name="berat" placeholder="Masukan Berat Pakaian(Pakai Angka)" min="3" required>
-    	</div>
-
-		<div class="form-group">
-        	<label>Berat (Dalam <i style="color: red;">Satuan</i>)</label>
-        	<input type="number" class="form-control" name="berat2" placeholder="Masukan Berat Pakaian(Pakai Angka)" id="txt2" onkeyup="sum();">
-    	</div>
-
-		<div class="form-group">
-        	<label><i style="color: purple;">Jumlah</i></label>
-        	<input style="cursor: no-drop;" type="number" id="txt3" onkeyup="sum();" readonly>
-    	</div>
-
-		<div class="form-group">
-    		<label>Tanggal Transaksi</label>
-			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
-		</div>
 		
 		<div class="form-group">
-    		<label>Tanggal Ambil</label>
-    		<!-- <input type="date" class="form-control" id="start" name="trip-start"
-			value="2022-03-11"
-			min="2022-03-11" max="2030-12-31"> -->
-			<input type="" class="form-control" id="datepicker" name="tgl_ambil" required > 
+        	<label>Jenis Pembayaran</label>
+            	<select required  class="form-control" name="jenis">
+				<option ></option>
+					<option>QRIS</option>
+					<option>CASH</option>
+				</select>
 		</div>
 
-			<pre>*Cek Data Dengan Teliti</pre>
+
+		<div class="form-group">
+    		<label>Tanggal Order</label>
+			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y') ?>" name="tgl_ambil" readonly>
+		</div>
+	
 	
 			<button type="submit" class="btn btn-primary waves-effect waves-light">Buat Transaksi</button>
 		</form>

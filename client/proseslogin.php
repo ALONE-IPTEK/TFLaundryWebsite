@@ -8,7 +8,7 @@ function antiinjection($data){
 
 $user = antiinjection($_POST['username']);
 $pass     = antiinjection(md5($_POST['password']));
-$cekuser = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$user'");
+$cekuser = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM konsumen WHERE username = '$user'");
 $jumlah = mysqli_num_rows($cekuser);
 $hasil = mysqli_fetch_array($cekuser);
 if ( $jumlah == 0 ) {

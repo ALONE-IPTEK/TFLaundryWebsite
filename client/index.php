@@ -134,41 +134,11 @@ $date=date('Y-m-d');
 					<li>
                         <a href="?p=riwayatt" class="waves-effect"><i class="fa fa-clock-o"></i><span> Riwayat Transaksi </span></a>
                     </li>
-                    <?php if ($hasil['level']!=='Konsumen') { ?>
-					<li>
-                        <a href="?p=tambahko" class="waves-effect"><i class="fa fa-user-plus"></i><span> Tambah Konsumen </span></a>
-                    </li>
                     <li>
                         <a href="?p=maps" class="waves-effect"><i class="fa fa-map-marker"></i><span> Maps </span></a>
                     </li>
+                   
                     
-			        <li class="has_sub">
-                    <a href="#" class="waves-effect"><i class="fa fa-list"></i> <span> Data </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                        <ul class="list-unstyled">
-                            <!-- <li><a href="?p=barang">Barang</a></li> -->
-                            <li><a href="?p=datako">Konsumen</a></li>
-						    <!-- <li><a href="?p=datas">Supplier</a></li> -->
-                            <li><a href="?p=dataA">Admin</a></li>
-						    <li><a href="?p=datak">Karyawan</a></li>
-						    <li><a href="?p=jenis">Jenis Laundry Kiloan</a></li>
-						    <li><a href="?p=jenis2">Jenis Laundry Satuan</a></li>
-						    <!-- <li><a href="?p=beli">Pembelian</a></li>
-						    <li><a href="?p=pakai">Pemakaian</a></li> -->
-                        </ul>
-                    </li>
-					<?php if ($hasil['level']=='Administrator') { ?>
-				    <li class="has_sub">
-                    <a href="#" class="waves-effect"><i class="fa fa-user"></i> <span> Admin Menu </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="?p=tambaha">Tambah Admin/CEO</a></li>
-                            <li><a href="?p=tambahk">Tambah Karyawan</a></li>
-							<li><a href="?p=tambahs">Tambah Supplier</a></li>
-							<li><a href="?p=olahk">Olah Karyawan</a></li>
-							<li><a href="?p=olahs">Olah Supplier</a></li>
-                        </ul>
-                </li>
-                    <?php } ?>
-                    <?php } ?>
         </ul>
             <div class="clearfix"></div>
         </div>
