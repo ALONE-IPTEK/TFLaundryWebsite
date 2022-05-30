@@ -37,6 +37,9 @@ break;
                         case "datako":						
 include "konsumen/data.php";
 break;
+                        case "dataord":						
+include "konsumen/data.php";
+break;
                         case "maps":						
 include "maps/index.php";
 break;

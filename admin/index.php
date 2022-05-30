@@ -147,6 +147,7 @@ $date=date('Y-m-d');
                         <ul class="list-unstyled">
                             <!-- <li><a href="?p=barang">Barang</a></li> -->
                             <li><a href="?p=datako">Konsumen</a></li>
+                            <li><a href="?p=dataord">Data Order</a></li>
 						    <!-- <li><a href="?p=datas">Supplier</a></li> -->
                             <li><a href="?p=dataA">Admin</a></li>
 						    <li><a href="?p=datak">Karyawan</a></li>
