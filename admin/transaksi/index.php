@@ -119,7 +119,7 @@ Transaksi Berhasil!</b></h4>';
 	}else{
 		
 		echo 'Gagal menambahkan data! ';	
-		echo '<a href="tambah.php">Kembali</a>';	
+		echo '<a href="index.php">Kembali</a>';	
 		
 	}
 	
