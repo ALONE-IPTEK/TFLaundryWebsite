@@ -24,20 +24,17 @@
                 </div>
                 <div class="col-md-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-white px-3" href="">
+                        <a class="text-white px-3" href="https://www.facebook.com/tflaundry/" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a class="text-white px-3" href="">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="text-white px-3" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="text-white px-3" href="">
-                            <i class="fab fa-instagram"></i>
-                        </a>
                         <a class="text-white pl-3" href="">
                             <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://id.yahoo.com" target="_blank" style="margin-left: 1px; background:transparent; padding:0px;">
+                        <img width="75%" height="75%" src="img/googleplay-link.png">
                         </a>
                     </div>
                 </div>
