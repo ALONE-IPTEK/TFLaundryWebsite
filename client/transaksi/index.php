@@ -37,6 +37,8 @@ if(function_exists('date_default_timezone_set')) date_default_timezone_set($time
 $tgl_order=date('Y-m-d H:i:s');
 $gps				=input($_POST['gps']);
 $status				=input($_POST['status']);
+$name				=input($_POST['username']);
+
 
 
 
@@ -49,7 +51,7 @@ $status				=input($_POST['status']);
 
  //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
  if ($hasil) {
-	 header("Location:?p=riwayatt");
+	 header("Location:indx.php?p=riwayatt");
  }
  else {
 	 echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
@@ -58,8 +60,10 @@ $status				=input($_POST['status']);
 
 }
 ?>
-	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" >
-	
+	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+	<div class="form-group">
+            <input style="cursor: no-drop;"type="text" class="form-control" name="username" value="<?php echo $hasil7['nama'] ?>" placeholder="Nomor Nota" readonly>
+	</div>
 		<div class="form-group">
             <label>Jenis Laundry</label>
             <select required  class="form-control" name="jenis_laundry">

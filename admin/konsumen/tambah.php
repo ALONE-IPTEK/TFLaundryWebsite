@@ -8,16 +8,15 @@ $passasli=$_POST['password'];
 $password=md5($passasli);
 $username	= $_POST['username'];
 $nama		= $_POST['nama'];
-$nik		= $_POST['nik'];
 $telp		= $_POST['telp'];
 $gender		= $_POST['gender'];
 $alamat		= $_POST['alamat'];
-$cekuser = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM konsumen WHERE username = '$username'");  
+$cekuser = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM pengguna WHERE username = '$username'");  
   if(mysqli_num_rows($cekuser) <> 0) {
  echo "ERROR : Username sudah terdaftar";
   }else{
 	
-	$input = mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO konsumen VALUES(NULL, '$nama','$username', '$password', 'Konsumen', '$nik', '$alamat', '$telp', '$gender')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$input = mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO pengguna VALUES(NULL, '$nama','$username', '$password', 'Konsumen', '$nik', '$alamat', '$telp', '$gender')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	if($input){
 		
 		echo '<div class="alert alert-success alert-dismissable">
