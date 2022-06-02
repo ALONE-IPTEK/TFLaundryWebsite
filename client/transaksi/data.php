@@ -40,7 +40,8 @@ $query = mysqli_query($conn, "SELECT * FROM transaksi2  ORDER BY tgl_order");?>
             </thead>
     <tbody>
 <?php
-
+  $tampilPeg    =mysqli_query($conn, "SELECT * FROM transaksi2 WHERE username='$_SESSION[username][level=Konsumen]'");
+  $peg    =mysqli_fetch_array($tampilPeg);
 $i=1;
 while($data = mysqli_fetch_array ($query)){
 ?>

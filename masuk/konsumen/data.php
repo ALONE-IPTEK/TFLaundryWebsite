@@ -16,8 +16,9 @@
             </thead>
 			<tbody>
 				<?php
+				
 					$i=1;
-					$tp=mysqli_query($conn, "SELECT * FROM pengguna WHERE level='Konsumen' ORDER BY id ");
+					$tp=mysqli_query($conn, "SELECT * FROM konsumen WHERE level='Konsumen' ORDER BY id ");
 					while($r=mysqli_fetch_array($tp)){
 				?>
 				<tr>
