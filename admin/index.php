@@ -134,7 +134,6 @@ $date=date('Y-m-d');
 					<li>
                         <a href="?p=riwayatt" class="waves-effect"><i class="fa fa-clock-o"></i><span> Riwayat Transaksi </span></a>
                     </li>
-                    <?php if ($hasil['level']!=='Konsumen') { ?>
 					<li>
                         <a href="?p=tambahko" class="waves-effect"><i class="fa fa-user-plus"></i><span> Tambah Konsumen </span></a>
                     </li>
@@ -168,7 +167,6 @@ $date=date('Y-m-d');
 							<li><a href="?p=olahs">Olah Supplier</a></li>
                         </ul>
                 </li>
-                    <?php } ?>
                     <?php } ?>
         </ul>
             <div class="clearfix"></div>
