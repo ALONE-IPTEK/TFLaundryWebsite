@@ -21,84 +21,89 @@ if (empty($hasil7['username'])) {
     header('Location: ../login.php');
 }
 
-function input($data) {
-	$data = trim($data);    
-	$data = stripslashes($data);
-	$data = htmlspecialchars($data);
-	return $data;
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){	
+if($_SERVER["REQUEST_METHOD"] == "POST"){	
 
-$jl					=input($_POST['jenis_laundry']);
-$jl_p				=input($_POST['jenis_pembayaran']);
+$jl		= $_POST['jenis_laundry'];
+$jl_p	= $_POST['jenis_pembayaran'];
+
 $timezone = "Asia/Jakarta";
 if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-$tgl_order=date('Y-m-d H:i:s');
-$gps				=input($_POST['gps']);
-$status				=input($_POST['status']);
-$name				=input($_POST['username']);
+$tgl_order	=date('Y-m-d H:i:s');
+$gps	=$_POST['gps'];
+$status	=$_POST['status'];
+$usr	= $hasil7['nama'];
 
 
 
 
- //Query input menginput data kedalam tabel test
- $sql="insert into transaksi2 values
- ('','$jl','$jl_p','$tgl_order', '$gps', '$status')";
-
- //Mengeksekusi/menjalankan query diatas
- $hasil=mysqli_query($conn,$sql);
-
- //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
- if ($hasil) {
-	 header("Location:indx.php?p=riwayatt");
- }
- else {
-	 echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
-
- }
-
-}
+	
+	$input = mysqli_query($conn, "INSERT INTO transaksi2 VALUES(NULL, '$jl', '$jl_p', '$tgl_order', '$gps', '$status', '$usr')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	
+	if($input){
+		
+		echo '<div class="alert alert-success alert-dismissable">
+<button type="button" class="open" data-dismiss="alert" aria-hidden="true">&times;</button><h4><b>
+Transaksi Berhasil!</b></h4>';		
+		echo '
+		<b>Rincian Transaksi</b><br>
+		==============================<Br>
+		Nama : <b>'.$usr.'</b><br>
+		Jenis Laundry : <b>'.$jl.'</b><br>
+		Jenis Pembayaran : <b>'.$jl_p.'</b><br>
+		Tanggal Order : <b>'.TanggalIndo($tgl_order).'</b><br>
+		GPS : <b>'.$gps.'</b><br>
+		Status : <b>'.$status.'</b><br>
+		==============================<br>
+		<a href="index.php?p=riwayatt"><h4><button type="button">Riwayat</button><b></a>
+		</div>';	
+		
+	}else{
+		
+		echo 'Gagal menambahkan data! ';	
+		echo '<a href="index.php">Kembali</a>';	
+		
+	}
+	
+  }
+ 
 ?>
-	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-	<div class="form-group">
-            <input style="cursor: no-drop;"type="text" class="form-control" name="username" value="<?php echo $hasil7['nama'] ?>" placeholder="Nomor Nota" readonly>
-	</div>
+	<form  method="post" >
+		
 		<div class="form-group">
             <label>Jenis Laundry</label>
-            <select required  class="form-control" name="jenis_laundry">
-			<option></option>
-            <option>Kiloan</option>
-            <option>Satuan</option>
+            <select type="text" class="form-control" name="jenis_laundry">
+				<option></option>
+				<option>Satuan</option>
+				<option>Kiloan</option>
 			</select>
         </div>
 		
-		
 		<div class="form-group">
-        	<label>Jenis Pembayaran</label>
-            	<select required  class="form-control" name="jenis_pembayaran">
-				<option ></option>
-					<option>QRIS</option>
-					<option>CASH</option>
-				</select>
+            <label>Jenis Pembayaran</label>
+			<select type="text" class="form-control" name="jenis_pembayaran">
+				<option></option>
+				<option>QRIS</option>
+				<option>CASH</option>
+			</select>
 		</div>
-
-
 		<div class="form-group">
     		<label>Tanggal Order</label>
-			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y H:i:s') ?>" name="tgl_order" readonly>
+			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y H:i:s') ?>" name="tgl_order" readonly />
 		</div>
-
 		<div class="form-group">
-    		<label>GPS</label>
-			<input style="cursor: no-drop;" type="text" class="form-control" name="gps" >
-		</div>
-
+        	<label>GPS</label>
+        	<input type="text" class="form-control" name="gps" />
+    	</div>
+		
 		<div class="form-group">
-    		<label>Status</label>
-			<input style="cursor: no-drop;" type="text" class="form-control" name="status" >
-		</div>
-	
+        	<label>Status</label>
+        	<input type="text" class="form-control" name="status" />
+    	</div>
+
+		
+
+			<pre>*Cek Data Dengan Teliti</pre>
 	
 			<button type="submit" class="btn btn-primary waves-effect waves-light">Buat Transaksi</button>
 		</form>

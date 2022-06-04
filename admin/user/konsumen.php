@@ -20,6 +20,7 @@ echo "<div class='panel panel-border panel-primary'>
 											<th><i class='icon-signal'></i> Telp</th>
 											<th><i class='icon-signal'></i> Gender</th>
 										<th><i class='icon-chevron-right'></i> Aksi</th>
+                                        
                                         </tr>
                                     </thead>
                                     <tbody>";

@@ -20,7 +20,7 @@ $logout = isset($_GET['logout']);
 
         <link rel="shortcut icon" href="images/favicon_1.ico">
 
-        <title>Aplikasi Laundry - Masuk</title>
+        <title>T & F Laundry - Masuk</title>
 
         <!-- Base Css Files -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -117,6 +117,8 @@ echo '                        <div class="alert alert-warning alert-dismissable"
                     <div class="form-group text-center m-t-40">
                         <div class="col-xs-12">
                             <button class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit">Log In</button>
+                            <a href="../index.php" class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit">Home
+                            </a>
                         </div>
                     </div>
 

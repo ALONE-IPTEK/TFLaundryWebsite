@@ -7,7 +7,10 @@ if ( !isset($_SESSION['username']) ) {
 else { 
     $usr = $_SESSION['username']; 
 }
-$query = mysqli_query($conn, "SELECT * FROM transaksi2  ORDER BY tgl_order");?>
+$query = mysqli_query($conn, "SELECT * FROM transaksi2 WHERE username='$_SESSION[username]' ORDER BY tgl_order");
+
+$peg    =mysqli_fetch_array($query);
+?>
 <style>
 	th{
 		border-style: solid; 
@@ -31,6 +34,8 @@ $query = mysqli_query($conn, "SELECT * FROM transaksi2  ORDER BY tgl_order");?>
             <thead>
                 <tr>
 					<th><i class='icon-terminal'></i> No</th>
+					<th><i class='icon-terminal'></i> Nama</th>
+
 					<th><i class='icon-terminal'></i> Jenis Laundry</th>
 					<th><i class='icon-signal'></i> Jenis Pembayaran</th>
 					<th><i class='icon-signal'></i> Tanggal Order</th>
@@ -42,20 +47,21 @@ $query = mysqli_query($conn, "SELECT * FROM transaksi2  ORDER BY tgl_order");?>
             </thead>
     <tbody>
 <?php
-  $tampilPeg    =mysqli_query($conn, "SELECT * FROM transaksi2 WHERE username='$_SESSION[username][level=Konsumen]'");
-  $peg    =mysqli_fetch_array($tampilPeg);
+
 $i=1;
 while($data = mysqli_fetch_array ($query)){
 ?>
 	<tr>
 		<td><?php echo $i;?></td>
+		<td><?php echo $data['username'];?></td>		 
+
 		<td><?php echo $data['jenis_laundry'];?></td>		 
 		<td><?php echo $data['jenis_pembayaran'];?></td>
 		<td><?php echo $data['tgl_order'];?></td>
 		<td><?php echo $data['gps'];?></td>		 
 
 		<td><?php echo $data['status'];?></td>		 
-		<td><a href="transaksi2/kwitansi.php?id=<?php echo $data['id'];?>" target="_blank">Lihat Kwitansi</a></td>
+		<td><a href="transaksi2/kwitansi.php?id=<?php echo $data['username'];?>" target="_blank">Lihat Kwitansi</a></td>
     </tr>
 	
 	<?php $i=$i+1; ?>

@@ -7,7 +7,7 @@ else {
     $usr = $_SESSION['username'];
 }
 require_once('koneksi.php');
-$query = mysqli_query($conn, "SELECT * FROM pengguna WHERE username = '$usr'");
+$query = mysqli_query($conn, "SELECT * FROM konsumen WHERE username = '$usr'");
 $hasil = mysqli_fetch_array($query);
 if (empty($hasil['username'])) {
     header('Location: login.php');
@@ -90,7 +90,7 @@ $date=date('Y-m-d');
                                 <li class="dropdown">
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">Selamat Datang, <?php echo $hasil['username']; ?> <img src="images/user.png" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
-                              
+                                    <li><a href="../index.php"><i class="fa-solid fa-house"></i> Home</a></li>
                                     <li><a href="logout.php"><i class="md md-settings-power"></i> Logout</a></li>
                                     </ul>
                                 </li>
