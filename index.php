@@ -8,21 +8,12 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
+    <!-- Navbar Start & Topbar Start -->
     <?php
-    include "toolbar.html";
-    ?>
-    <!-- Topbar End -->
-
-
-    <!-- Navbar Start -->
-    
-    <?php 
+        include "toolbar.html";
         include "Nav.html";
-        // include "konten.php";
     ?>
-
-    <!-- Navbar End -->
+    <!-- Navbar End & Topbar Start-->
 
 
     <!-- Carousel Start -->

@@ -8,44 +8,13 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-primary py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
-                    <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-3" href="note/Privacy_Policy.php">Privacy Policy</a>
-                        <span class="text-white">|</span>
-                    <a class="text-white pl-3" href="note/disclaimer.php">Disclaimer</a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-3" href="https://www.facebook.com/tflaundry/" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="text-white px-3" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-white pl-3" href="">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://youtu.be/DQnA6JxnPyM" target="_blank" style="margin-left: 1px; background:transparent; padding:0px;">
-                        <img width="75%" height="75%" src="img/googleplay-link.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
 
-
-    <!-- Navbar Start -->
+    <!-- Navbar Start & Topbar Start -->
     <?php
+        include "toolbar.html";
         include "Nav.html";
     ?>
-    <!-- Navbar End -->
+    <!-- Navbar End & Topbar Start-->
 
 
     <!-- Page Header Start -->

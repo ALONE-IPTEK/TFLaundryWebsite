@@ -51,7 +51,7 @@ Transaksi Berhasil!</b></h4>';
 		Nama : <b>'.$usr.'</b><br>
 		Jenis Laundry : <b>'.$jl.'</b><br>
 		Jenis Pembayaran : <b>'.$jl_p.'</b><br>
-		Tanggal Order : <b>'.TanggalIndo($tgl_order).'</b><br>
+		Tanggal Order : <b>'.$tgl_order.'</b><br>
 		GPS : <b>'.$gps.'</b><br>
 		Status : <b>'.$status.'</b><br>
 		==============================<br>
@@ -98,7 +98,7 @@ Transaksi Berhasil!</b></h4>';
 		
 		<div class="form-group">
         	<label>Status</label>
-        	<input type="text" class="form-control" name="status" />
+        	<input type="text" class="form-control" name="status" readonly value="PROSES" />  
     	</div>
 
 		
