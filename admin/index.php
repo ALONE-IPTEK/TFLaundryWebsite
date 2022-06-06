@@ -227,7 +227,7 @@ $date=date('Y-m-d');
 
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.0-rc.2/jquery-ui.min.js"></script>
         <script src="assets/datatables/jquery.dataTables.min.js"></script>
@@ -257,9 +257,9 @@ $date=date('Y-m-d');
 
         <script type="text/javascript">
             $(function () {
-                $('#datetimepicker').datetimepicker({
-                    format: 'YYYY-MM-DD HH:mm',
-                });
+                // $('#datetimepicker').datetimepicker({
+                //     format: 'YYYY-MM-DD HH:mm',
+                // });
                     
                     // $('#datepicker').datetimepicker({
                         // format: 'DD MMMM YYYY',

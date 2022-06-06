@@ -2,8 +2,8 @@
     <div class='panel-heading'> 
        	<h3 class='panel-title'><i class='fa fa-user-plus'></i> Buat Transaksi</h3> 
 </div>  
-
 <div class='panel-body'> 
+
 
 <?php
 include "../koneksi.php";
@@ -26,19 +26,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 $jl		= $_POST['jenis_laundry'];
 $jl_p	= $_POST['jenis_pembayaran'];
-
-$timezone = "Asia/Jakarta";
-if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-$tgl_order	=date('Y-m-d H:i:s');
+$tgl_order	= $_POST['tgl_order'];
 $gps	=$_POST['gps'];
 $status	=$_POST['status'];
+$tgl_order2	= $_POST['tgl_order2'];
 $usr	= $hasil7['nama'];
 
-
+	
 
 
 	
-	$input = mysqli_query($conn, "INSERT INTO transaksi2 VALUES(NULL, '$jl', '$jl_p', '$tgl_order', '$gps', '$status', '$usr')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	$input = mysqli_query($conn, "INSERT INTO transaksi2 VALUES(NULL, '$jl', '$jl_p', '$tgl_order','$tgl_order2', '$gps', '$status','$usr')") or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	
 	if($input){
 		
@@ -54,6 +52,8 @@ Transaksi Berhasil!</b></h4>';
 		Tanggal Order : <b>'.$tgl_order.'</b><br>
 		GPS : <b>'.$gps.'</b><br>
 		Status : <b>'.$status.'</b><br>
+		Status : <b>'.$tgl_order2.'</b><br>
+
 		==============================<br>
 		<a href="index.php?p=riwayatt"><h4><button type="button">Riwayat</button><b></a>
 		</div>';	
@@ -72,14 +72,14 @@ Transaksi Berhasil!</b></h4>';
 		
 		<div class="form-group">
             <label>Jenis Laundry</label>
-            <select type="text" class="form-control" name="jenis_laundry">
+            <select type="text" class="form-control" name="jenis_laundry" required>
 				<option></option>
 				<option>Satuan</option>
 				<option>Kiloan</option>
 			</select>
         </div>
 		
-		<div class="form-group">
+		<div hidden class="form-group">
             <label>Jenis Pembayaran</label>
 			<select type="text" class="form-control" name="jenis_pembayaran">
 				<option></option>
@@ -89,7 +89,7 @@ Transaksi Berhasil!</b></h4>';
 		</div>
 		<div class="form-group">
     		<label>Tanggal Order</label>
-			<input style="cursor: no-drop;" type="text" class="form-control" value="<?php echo date('d-m-Y H:i:s') ?>" name="tgl_order" readonly />
+			<input style="cursor: no-drop;" type="text" class="form-control" name="tgl_order" id="tgl_order" readonly />
 		</div>
 		<div class="form-group">
         	<label>GPS</label>
@@ -101,6 +101,11 @@ Transaksi Berhasil!</b></h4>';
         	<input type="text" class="form-control" name="status" readonly value="PROSES" />  
     	</div>
 
+		<div hidden class="form-group">
+        	<label>Tanggal Ambil/Proses</label>
+        	<input type="text" class="form-control" name="tgl_order2" />
+    	</div>
+
 		
 
 			<pre>*Cek Data Dengan Teliti</pre>
@@ -110,3 +115,13 @@ Transaksi Berhasil!</b></h4>';
     </div>
 </div>
 
+
+
+<script>
+		
+				setInterval(function(){
+					console.log( new Date('d'))
+					$("#tgl_order").val(new Date().toLocaleString())
+				}, 1000);
+
+        </script>

@@ -42,6 +42,8 @@ $peg    =mysqli_fetch_array($query);
 					<th><i class='icon-signal'></i> Alamat</th>
 
 					<th><i class='icon-signal'></i> Status</th>
+					<th><i class='icon-signal'></i> Tanggal Ambil/Proses</th>
+
 					<th><i class='icon-signal'></i> Kwitansi</th>
                 </tr>
             </thead>
@@ -60,7 +62,9 @@ while($data = mysqli_fetch_array ($query)){
 		<td><?php echo $data['tgl_order'];?></td>
 		<td><?php echo $data['gps'];?></td>		 
 
-		<td><?php echo $data['status'];?></td>		 
+		<td><?php echo $data['status'];?></td>
+		<td><?php echo $data['tgl_order2'];?></td>		 
+
 		<td><a href="transaksi2/kwitansi.php?id=<?php echo $data['username'];?>" target="_blank">Lihat Kwitansi</a></td>
     </tr>
 	

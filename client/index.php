@@ -24,7 +24,7 @@ function TanggalIndo($date){
 }
 $timezone = "Asia/Jakarta";
 if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-$date=date('Y-m-d');
+$date=date('Y-m-d H:i:s');
 @ini_set('display_errors', 0);
 ?>
 <!DOCTYPE html>
@@ -292,6 +292,9 @@ $date=date('Y-m-d');
                 dataTable = $('#datatable').dataTable();
             });
         </script>
+
+        
+
 
 	</body>
 </html>
