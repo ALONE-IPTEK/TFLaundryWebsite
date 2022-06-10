@@ -8,8 +8,8 @@
               <a href="https://maps.google.com" >  Ke Maps Browser
             </div> -->
 
-
-            <iframe id="frame-map" src="https://maps.google.com/maps?q=Surabaya&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%"
+<button>
+            <iframe id="frame-map" src="https://maps.google.com/maps?q=Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%"
                 height="380" frameborder="0" style="border:0" allowfullscreen>
             </iframe>
             

@@ -93,12 +93,17 @@ Transaksi Berhasil!</b></h4>';
 		</div>
 		<div class="form-group">
         	<label>GPS</label>
-        	<input type="text" class="form-control" name="gps" />
+        	<br>
+			<iframe name="gps" id="frame-map" src="https://maps.google.com/maps?q=Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" width="25%"
+                height="250" frameborder="0" style="border:0" allowfullscreen>
+            </iframe>
+			
     	</div>
 		
 		<div class="form-group">
         	<label>Status</label>
-        	<input type="text" class="form-control" name="status" readonly value="PROSES" />  
+        	<input type="text" class="form-control" name="status" readonly value="ORDER" />  
+			
     	</div>
 
 		<div hidden class="form-group">
@@ -108,6 +113,7 @@ Transaksi Berhasil!</b></h4>';
 
 		
 
+
 			<pre>*Cek Data Dengan Teliti</pre>
 	
 			<button type="submit" class="btn btn-primary waves-effect waves-light">Buat Transaksi</button>
@@ -116,7 +122,50 @@ Transaksi Berhasil!</b></h4>';
 </div>
 
 
+            
 
+            <script>
+    var track = {
+      // (B) PROPERTIES
+      map : null, // HTML map
+      delay : 10000, // Delay between location refresh
+
+      // (C) INIT
+      init : () => {
+        track.map = document.getElementById("map");
+        track.show();
+        setInterval(track.show, track.delay);
+      },
+
+      // (D) GET DATA FROM SERVER AND UPDATE MAP
+      show : () => {
+        // (D1) DATA
+        var data = new FormData();
+        data.append("req", "getAll");
+
+        // (D2) AJAX FETCH
+        fetch("maps/adminpanel.php", { method:"POST", body:data })
+        .then(res => res.json()).then((res) => {
+          if (res.status==1) { for (let rider of res.message) {
+            var row = document.createElement("div");
+            row.innerHTML = "Rider ID " + rider.rider_id +
+                            " | Lng " + rider.track_lng +
+                            " | Lat " + rider.track_lat +
+                            " | Time " + rider.track_time;
+
+                            
+          $('#frame-map').attr('src',`https://maps.google.com/maps?q=${rider.track_lat},${rider.track_lng}&t=&z=16&ie=UTF8&iwloc=&output=embed`);
+            track.map.appendChild(row);
+          }} else { track.map.innerHTML = res.message; }
+
+
+
+
+        }).catch((err) => { console.error(err); });
+      }
+    };
+    window.addEventListener("DOMContentLoaded", track.init);
+    </script>
 <script>
 		
 				setInterval(function(){

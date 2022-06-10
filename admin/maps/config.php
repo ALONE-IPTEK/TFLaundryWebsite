@@ -56,7 +56,7 @@ class Track {
 
 // (G) DATABASE SETTINGS - CHANGE THESE TO YOUR OWN
 define("DB_HOST", "localhost");
-define("DB_NAME", "db_test");
+define("DB_NAME", "db_laundry");
 define("DB_CHARSET", "utf8");
 define("DB_USER", "root");
 define("DB_PASSWORD", "");

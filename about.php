@@ -46,7 +46,9 @@
                 <div class="col-lg-7 mt-5 mt-lg-0 pl-lg-5">
                     <h1 class="mb-4">Tentang T&F Laundry</h1>
                     <h5 class="font-weight-medium font-italic mb-4">Ayo, buatlah kebersihan menjadi gaya hidup Anda yang lebih baik!</h5>
-                    <p class="mb-2">T&F Laundry merupakan unit usaha yang dikelola oleh kinerja handal dan berpengalaman dalam memberikan pelayanan yang bergerak di bidang laundry, termasuk juga konsep cuci dan setrika per kilogram dan Free Pickup
+                    <p class="mb-2" align="justify">T&F Laundry merupakan unit usaha yang dikelola oleh kinerja handal dan berpengalaman dalam memberikan pelayanan yang bergerak di bidang laundry termasuk juga konsep cuci dan setrika per kilogram dan Free Pickup.<br><br>
+                    T&F Laundry pertama kali didirikan pada tahun 2010. Berbekal pengelolaan yang profesional dan handal, brand T&F Laundry kian diterima di masyarakat. Banyaknya agen atau franchise laundry yang marak saat ini membuktikan usaha layanan jasa ini dibutuhkan oleh masyarakat modern baik perorangan, perusahaan maupun perhotelan. T&F Laundry menawarkan jasa layanan cuci dan setrika berdasarkan berat (Kg) dan cucian konsumen, sehingga harga yang ditawarkan cukup mahal yaitu Rp. 8.000/kg, harga itu sebanding dengan kualitas yang dihasilkan yaitu cucian bersih dan wangi.<br><br>
+                    T&F Laundry buka setiap hari dari pukul 07.30 - 21.00, kecuali libur di hari-hari besar atau hari perayaan.
                     </p>
                     <div class="row">
                         <div class="col-sm-6 pt-3">
@@ -80,7 +82,7 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white border border-light shadow rounded-circle mb-4" style="width: 150px; height: 150px; border-width: 15px !important;">
                             <h2 class="display-2 text-secondary m-0">1</h2>
                         </div>
-                        <h6 class="font-weight-bold m-0 mt-2">Pesan via  Aplikasi T&F Laundry</h6>
+                        <h6 class="font-weight-bold m-0 mt-2">Pesan via Web atau Android T&F Laundry</h6>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -88,7 +90,7 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white border border-light shadow rounded-circle mb-4" style="width: 150px; height: 150px; border-width: 15px !important;">
                             <h2 class="display-2 text-secondary m-0">2</h2>
                         </div>
-                        <h6 class="font-weight-bold m-0 mt-2">Pilih layanan yang dibutuhkan dan detail pesanan (layanan, jumlah, dll)</h6>
+                        <h6 class="font-weight-bold m-0 mt-2">Pilih layanan yang dibutuhkan dan detail pesanan (Layanan, jumlah, dll)</h6>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -96,7 +98,7 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white border border-light shadow rounded-circle mb-4" style="width: 150px; height: 150px; border-width: 15px !important;">
                             <h2 class="display-2 text-secondary m-0">3</h2>
                         </div>
-                        <h6 class="font-weight-bold m-0 mt-2">Konfirmasi pesanan Anda (alamat, jam dan tanggal)</h6>
+                        <h6 class="font-weight-bold m-0 mt-2">Konfirmasi pesanan Anda (Alamat, jam dan tanggal)</h6>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

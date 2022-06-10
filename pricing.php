@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="btn text-white" href="">Home</a>
+                        <a class="btn text-white" href="index.php">Home</a>
                         <i class="fas fa-angle-right text-white"></i>
                         <a class="btn text-white disabled" href="">Harga</a>
                     </div>
@@ -43,6 +43,22 @@
             <h6 class="text-secondary text-uppercase text-center font-weight-medium mb-3"></h6>
             <h1 class="display-4 text-center mb-5">DAFTAR HARGA</h1>
             <div class="row">
+            <div class="col-lg-4 mb-4">
+                    <div class="bg-light text-center mb-2 pt-4">
+                        <div class="d-inline-flex flex-column align-items-center justify-content-center bg-secondary rounded-circle shadow mt-2 mb-4" style="width: 200px; height: 200px; border: 15px solid #ffffff;">
+                            <h3 class="text-white">Kiloan</h3>
+                            <h1 class="display-4 text-white mb-0">
+                            <small class="align-top" style="font-size: 25px; line-height: 45px;">Rp 8.000/Kg</small>
+                            </h3>
+                        </div>
+                        <div class="d-flex flex-column align-items-center py-3">
+                            <p>Baju</p>
+                            <p>Celana</p>
+                            <p>Jaket</p>
+                            <p><b> 3 Hari Selesai</b></p>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-4 mb-4">
                     <div class="bg-light text-center mb-2 pt-4">
                         <div class="d-inline-flex flex-column align-items-center justify-content-center bg-secondary rounded-circle shadow mt-2 mb-4" style="width: 200px; height: 200px; border: 15px solid #ffffff;">
@@ -55,9 +71,8 @@
                             <p>Baju</p>
                             <p>Celana</p>
                             <p>Jaket</p>
-                            <p>-</p>
+                            <p><b> 1 Hari Selesai</b></p>
                         </div>
-                        <a href="" class="btn btn-secondary py-2 px-4">Signup Now</a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -74,19 +89,16 @@
                             <p>Hordeng</p>
                             <p>Boneka</p>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4">Signup Now</a>
                     </div>
                 </div>
-                
-
+            </div>
+        </div>       
+    </div>    
     <!-- Footer Start -->
     <?php 
         include "footer.html";
     ?>
     <!-- Footer End -->
-
-
-
 </body>
 
 </html>
