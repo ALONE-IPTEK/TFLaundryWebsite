@@ -90,53 +90,7 @@
     </div>
     <!-- Contact Info End -->
    
-    <!-- Pricing Plan Start -->
-    <div class="container-fluid pt-5 pb-3">
-        <div class="container">
-            <h1 class="display-4 text-center mb-5">JENIS LAUNDRY</h1>
-            
-            <div class="row">
-                
-                <div class="col-lg-4 mb-4">
-                    <div class="bg-light text-center mb-2 pt-4">
-                        <div class="d-inline-flex flex-column align-items-center justify-content-center bg-secondary rounded-circle shadow mt-2 mb-4" style="width: 200px; height: 200px; border: 15px solid #ffffff;">
-                            <h3 class="text-white">KILOAN</h3>
-                            <h3 class="display-4 text-white mb-0">
-                                <small class="align-top" style="font-size: 25px; line-height: 45px;">Rp 10.000/Kg</small>
-                            </h3>
-                        </div>
-                        <div class="d-flex flex-column align-items-center py-3">
-                            <p>Baju</p>
-                            <p>Celana</p>
-                            <p>Jaket</p>
-                            <p>-</p>
-                        </div>
-                        
-                    </div>
-                </div>
-               
-                <div class="col-lg-4 mb-4">
-                    <div class="bg-light text-center mb-2 pt-4">
-                        <div class="d-inline-flex flex-column align-items-center justify-content-center bg-primary rounded-circle shadow mt-2 mb-4" style="width: 200px; height: 200px; border: 15px solid #ffffff;">
-                            <h3 class="text-white">SATUAN</h3>
-                            <h3 class="display-4 text-white mb-0">
-                                <small class="align-top" style="font-size: 24px; line-height: 45px;">RP 20.000/Pcs</small>
-                            </h3>
-                        </div>
-                        <div class="d-flex flex-column align-items-center py-3">
-                            <p>Karpet</p>
-                            <p>Badcover</p>
-                            <p>Hordeng</p>
-                            <p>Boneka</p>
-                        </div>
-                       
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <!-- Pricing Plan End -->
+   
 
 
   
