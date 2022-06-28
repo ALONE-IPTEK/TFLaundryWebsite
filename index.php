@@ -81,6 +81,7 @@
                     <div class="d-inline-flex text-left">
                         <i class="fa fa-2x fa-phone-alt text-white m-0 mr-3"></i>
                         <div class="d-flex flex-column">
+                            
                             <h5 class="text-white font-weight-medium">Kontak</h5>
                             <p class="m-0 text-white">+62 813-1340-2979</p>
                     </div>
